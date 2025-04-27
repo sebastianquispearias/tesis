@@ -1,1 +1,10 @@
+# Ignorar notebooks de Jupyter
 *.ipynb
+
+# Ignorar imágenes
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.bmp
