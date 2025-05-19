@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @"
 # Virtual environment
 venv/
@@ -16,3 +17,15 @@ __pycache__/
 # Logs
 *.log
 "@ > .gitignore
+=======
+# Ignorar notebooks de Jupyter
+*.ipynb
+
+# Ignorar imágenes
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.bmp
+>>>>>>> e1c492355f070498289ded9beb2dcab168b79758
