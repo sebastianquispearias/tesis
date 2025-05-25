@@ -1,5 +1,9 @@
 # main.py
 import os
+#0 = DEBUG, 1 = INFO, 2 = WARNING, 3 = ERROR (por defecto)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
+os.environ['TF_XLA_FLAGS']  = '--xla_hlo_profile'  # opcional, para XLA
+
 import sys
 import time
 import logging
@@ -11,6 +15,10 @@ import cv2
 from tensorflow import keras
 import tensorflow as tf
 from callbacks_monitor import ProgressMonitor
+
+tf.config.run_functions_eagerly(True)
+
+
 from models import build_model
 
 import albumentations as A
@@ -34,10 +42,10 @@ logging.basicConfig(
 DATA_DIR = r'C:\Users\User\Desktop\tesis\data\320x320'
 MODEL_NAME = 'Unet_EfficientnetB3_final'
 BACKBONE = 'efficientnetb3'
-BATCH_SIZE = 4
+BATCH_SIZE = 1
 CLASSES = ['corrosion']
 LR = 1e-4
-EPOCHS = 50
+EPOCHS = 1
 print(EPOCHS)
 INPUT_SHAPE = (384, 384, 3)
 
@@ -159,6 +167,31 @@ class Dataloder(keras.utils.Sequence):
 
 
 if __name__ == '__main__':
+    ###########
+    # dry-run: entrena solo 1 batch y sale (para aislar inicialización)
+    dry_run = True
+
+    # crea tu modelo, loaders, callbacks, etc…
+    monitor_cb = ProgressMonitor(batch_print_freq=1)
+
+    if dry_run:
+        print("=== DRY RUN: 1 batch ===")
+        model.fit(train_loader, steps_per_epoch=1, epochs=1,
+                  callbacks=[monitor_cb], validation_data=valid_loader,
+                  validation_steps=1)
+        exit(0)
+
+    # si dry_run=False, corre el entrenamiento completo:
+    history = model.fit(
+        train_loader,
+        steps_per_epoch=len(train_loader),
+        epochs=EPOCHS,
+        callbacks=[cp, reduce_lr_cb, monitor_cb],
+        validation_data=valid_loader,
+        validation_steps=len(valid_loader),
+    )
+###########
+
     # Callbacks comunes
     MODEL_DIR = os.path.join(os.getcwd(), 'models')
     os.makedirs(MODEL_DIR, exist_ok=True)

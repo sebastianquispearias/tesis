@@ -1,6 +1,7 @@
 # models.py  (sólo cambian las arquitecturas)
 import segmentation_models as sm
 from tensorflow import keras
+from deeplabv3p.model import Deeplabv3 as DeepLabV3Plus
 
 def build_model(arch, backbone, n_classes, activation, lr, input_shape=(320,320,3), dropout=0.3):
     if arch == 'baseline':
@@ -9,6 +10,16 @@ def build_model(arch, backbone, n_classes, activation, lr, input_shape=(320,320,
         base = sm.PSPNet(backbone, classes=n_classes, activation=None, encoder_weights='imagenet',input_shape=input_shape)
     elif arch == 'fpn':
         base = sm.FPN(backbone, classes=n_classes, activation=None, encoder_weights='imagenet',input_shape=input_shape)
+    elif arch == 'deeplabv3+':
+        base = DeepLabV3Plus(
+            backbone_name=backbone,
+            input_shape=input_shape,
+            classes=n_classes,
+            activation=None,
+            weights='pascal_voc'  # o None para entrenar desde cero
+        )
+
+    
     else:
         raise ValueError(f"Arquitectura desconocida: {arch}")
 

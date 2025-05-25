@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @"
 # Virtual environment
 venv/
@@ -10,15 +9,6 @@ __pycache__/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-
-# VSCode settings
-.vscode/
-
-# Logs
-*.log
-"@ > .gitignore
-=======
-# Ignorar notebooks de Jupyter
 *.ipynb
 
 # Ignorar imágenes
@@ -28,4 +18,13 @@ __pycache__/
 *.gif
 *.svg
 *.bmp
->>>>>>> e1c492355f070498289ded9beb2dcab168b79758
+# VSCode settings
+.vscode/
+
+# Datos
+/data/
+/Corrosion Condition State Classification/
+
+# Logs
+*.log
+"@ > .gitignore
