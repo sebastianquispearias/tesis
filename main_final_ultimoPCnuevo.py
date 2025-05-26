@@ -1,17 +1,22 @@
-import os
+import os, random
+SEED = 42
+os.environ['PYTHONHASHSEED'] = str(SEED)
+random.seed(SEED)
+import numpy as np
+np.random.seed(SEED)
+import tensorflow as tf
+tf.random.set_seed(SEED)
 
 os.environ["SM_FRAMEWORK"] = "tf.keras"
 
 
 import sys
 import logging
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import segmentation_models as sm
 import cv2
 from tensorflow import keras
-import tensorflow as tf
 from callbacks_monitor import ProgressMonitor
 from models import build_model
 import albumentations as A
@@ -63,18 +68,23 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',
     handlers=[logging.StreamHandler(log)]
 )
-
-
+#C:\Users\User\Desktop\tesis\data\processed_binary_384
+#C:\Users\User\Desktop\tesis\data\320x320
 # ──────────────────────────────────────────────────────────────────────────────
 # B) PARÁMETROS GLOBALES
 # ──────────────────────────────────────────────────────────────────────────────
-DATA_DIR    = r'C:\Users\User\Desktop\tesis\data\processed_binary_384'
+DATA_DIR    = r'C:\Users\User\Desktop\tesis\data\320x320'
+import os
+print("DATA_DIR =", DATA_DIR)
+print("Train images:", len(os.listdir(os.path.join(DATA_DIR, "Train", "images"))))
+print("Train masks: ", len(os.listdir(os.path.join(DATA_DIR, "Train", "masks"))))
+
 MODEL_NAME  = 'Unet_EfficientnetB3_final'
 BACKBONE    = 'efficientnetb3'
-BATCH_SIZE  = 1
+BATCH_SIZE  = 4
 CLASSES     = ['corrosion']
 LR          = 1e-4
-EPOCHS      = 1
+EPOCHS      = 3
 INPUT_SHAPE = (384, 384, 3)
 
 n_classes = 1 if len(CLASSES) == 1 else (len(CLASSES) + 1)
@@ -134,24 +144,26 @@ class Dataset:
 
 
     def __getitem__(self, i):
-        image = cv2.cvtColor(cv2.imread(self.images_fps[i]), cv2.COLOR_BGR2RGB)
-        mask  = cv2.imread(self.masks_fps[i], 0)
-        masks = [(mask == v) for v in self.class_values]
-        mask  = np.stack(masks, axis=-1).astype('float32')
-        #if self.augmentation:
-        #    sample = self.augmentation(image=image, mask=mask)
-        #    image, mask = sample['image'], sample['mask']
-        #image = preprocess_input(image.astype('float32'))
-        #return image, mask
-        # 2) augmentación (solo train)
-        if self.augmentation:
-            sample = self.augmentation(image=image, mask=mask)
-            image, mask = sample['image'], sample['mask']
+        # 1) lee imagen RGB
+        img_path = self.images_fps[i]
+        image = cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB)
 
-        # 3) **pre-procesamiento** igual al notebook original
+        # 2) lee máscara original en escala de grises
+        mask_path = self.masks_fps[i]
+        raw_mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+
+        # 3) crea máscara binaria: 1 donde raw_mask>0, 0 en el resto
+        mask = (raw_mask > 0).astype('float32')[..., None]  # shape: (H, W, 1)
+
+        # 4) augmentación (solo train)
+        if self.augmentation:
+            augmented = self.augmentation(image=image, mask=mask)
+            image, mask = augmented['image'], augmented['mask']
+
+        # 5) preprocesamiento de backbone
         if self.preprocessing:
-            sample = self.preprocessing(image=image, mask=mask)
-            image, mask = sample['image'], sample['mask']
+            processed = self.preprocessing(image=image, mask=mask)
+            image, mask = processed['image'], processed['mask']
 
         return image, mask
     
@@ -159,7 +171,7 @@ class Dataset:
         return len(self.ids)
 
 class Dataloder(keras.utils.Sequence):
-    def __init__(self, dataset, batch_size=1, shuffle=False):
+    def __init__(self, dataset, batch_size=BATCH_SIZE, shuffle=False):
         self.dataset    = dataset
         self.batch_size = batch_size
         self.shuffle    = shuffle
@@ -185,8 +197,6 @@ class Dataloder(keras.utils.Sequence):
 # ──────────────────────────────────────────────────────────────────────────────
 if __name__ == '__main__':
 
-    
-    
     # 1) dry-run? (solo 1 batch para probar inicialización)
     dry_run = False
 
@@ -195,8 +205,15 @@ if __name__ == '__main__':
     train_ds = Dataset(x_train_dir, y_train_dir, classes=CLASSES, augmentation=get_training_augmentation(),preprocessing  = get_preprocessing(preprocess_input)  )
     valid_ds = Dataset(x_valid_dir, y_valid_dir, classes=CLASSES, augmentation=get_validation_augmentation(),preprocessing  = get_preprocessing(preprocess_input)  )
     train_loader = Dataloder(train_ds, batch_size=BATCH_SIZE, shuffle=True)
-    valid_loader = Dataloder(valid_ds, batch_size=1, shuffle=False)
+    valid_loader = Dataloder(valid_ds, batch_size=BATCH_SIZE, shuffle=False)
+    # al inicio de __main__
+    for i in range(3):
+        img, m = train_ds[i]
+        print("únicos valores de m:", np.unique(m))
+        visualize(image=img, gt_mask=m[...,0])
+    #   import sys; sys.exit(0)  # descomenta si quieres parar aquí
 
+    
 
     # ——— Prueba de shapes ———
     x_batch, y_batch = train_loader[0]
@@ -234,43 +251,86 @@ if __name__ == '__main__':
 
     # 5) crea loader de test
     test_ds     = Dataset(x_test_dir, y_test_dir, classes=CLASSES, augmentation=get_validation_augmentation(), preprocessing=get_preprocessing(preprocess_input))
-    test_loader = Dataloder(test_ds, batch_size=1, shuffle=False)
+    test_loader = Dataloder(test_ds, batch_size=BATCH_SIZE, shuffle=False)
 
     # 6) bucle de arquitecturas
     ARCHITECTURES = ['baseline', 'pspnet', 'fpn']
+    # justo después de definir ARCHITECTURES
+
+
+
     results = {}   # ← aquí guardamos history + evaluaciones
 
     for arch in ARCHITECTURES:
+
         logging.info(f"Entrenando arquitectura: {arch}")
         tf.keras.backend.clear_session()
+
         model = build_model(arch, BACKBONE, n_classes, activation, LR, input_shape=INPUT_SHAPE)
         model.summary()     # imprime la arquitectura y comprueba que no falle aquí
 
         # 6.1) nuevo modelo por arquitectura
-        model = build_model(arch, BACKBONE, n_classes, activation, LR, input_shape=INPUT_SHAPE)
         cp = keras.callbacks.ModelCheckpoint(
-            filepath=os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"),
+            filepath=os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5"),
             save_weights_only=True,
-            save_best_only=True,
+            save_best_only=False,
+            save_freq='epoch',
+            verbose=1,         
             mode='min'
         )
+        # 6.3) DRY-RUN sólo para PSPNet (1 batch) —> luego quita todo este if
+        #if arch == 'pspnet' and not dry_run:
+        #    logging.info(">>> DRY RUN para PSPNet: 1 batch")
+        #    dry_run = True
+        #    model.fit(
+        #        train_loader,
+        #        steps_per_epoch=1,
+        #        epochs=1,
+        #        callbacks=[cp],
+        #        validation_data=valid_loader,
+        #        validation_steps=1
+        #    )
+        #    continue
+
         # 6.2) entrena
-        history = model.fit(
-            train_loader,
-            steps_per_epoch=len(train_loader),
-            epochs=EPOCHS,
-            callbacks=[cp, reduce_lr , monitor_cb],  # ← usa los callbacks predefinidos
-            validation_data=valid_loader,
-            validation_steps=1##########################################################################len(valid_loader)
-        )
+        #history = model.fit(
+        #    train_loader,
+        #    steps_per_epoch=len(train_loader),
+        #    epochs=EPOCHS,
+        #    callbacks=[cp, reduce_lr , monitor_cb],  # ← usa los callbacks predefinidos
+        #    validation_data=valid_loader,
+        #    validation_steps=len(valid_loader)#1##########################################################################len(valid_loader)
+        
+        try:
+            history = model.fit(
+                train_loader,
+                steps_per_epoch=len(train_loader),
+                epochs=EPOCHS,
+                callbacks=[cp, reduce_lr , monitor_cb],
+                validation_data=valid_loader,
+                validation_steps=len(valid_loader)
+            )
+        except Exception as e:
+            logging.error(f"[{arch}] fallo en fit(): {e}")
+            continue  # saltamos a la siguiente arquitectura        
+        # justo después de entrenar y antes de recargar pesos
+        hist_df = pd.DataFrame(history.history)
+        hist_df.to_csv(f'callbacks/{MODEL_NAME}_{arch}_history.csv', index=False)
+
         # ¡MUY IMPORTANTE! recarga pesos antes de evaluar test:
-        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"))
+        #model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5"))
+        weight_path = os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5")
+        if not os.path.exists(weight_path):
+            raise FileNotFoundError(f"Pesos no encontrados para {arch}: {weight_path}")
+        model.load_weights(weight_path)
+        
+        val_metrics  = model.evaluate(valid_loader, verbose=0)
         test_metrics = model.evaluate(test_loader, verbose=0)
 
         # 6.3) guarda en results
         results[arch] = {
             'history':  history.history,
-            'eval_val': model.evaluate(valid_loader, verbose=0),
+            'eval_val': val_metrics,
             'eval_test': test_metrics
         }
 
@@ -290,10 +350,6 @@ if __name__ == '__main__':
        # os.makedirs(out_dir, exist_ok=True)
        # fig.savefig(os.path.join(out_dir, f"{MODEL_NAME}_{arch}.png"))
        # plt.close(fig)
-
-        # 6.4) evalúa test y guarda
-        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"))
-        results[arch]['eval_test'] = model.evaluate(test_loader, verbose=0)
 
         # 6.5) exporta métricas a Excel
         df = pd.DataFrame({
