@@ -1,7 +1,17 @@
-import os, random
+# main.py
+import os
 
 os.environ["SM_FRAMEWORK"] = "tf.keras"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # sólo warnings y errores
 
+import tensorflow as tf
+# tf.debugging.set_log_device_placement(True)
+# Al principio, justo tras importar TF:
+tf.debugging.set_log_device_placement(True)
+a = tf.constant([[1., 2.]])
+b = tf.constant([[3.], [4.]])
+c = tf.matmul(a, b)  # verás solo unas pocas líneas en consola
+tf.debugging.set_log_device_placement(False)
 
 import sys
 import logging
@@ -11,17 +21,20 @@ import matplotlib.pyplot as plt
 import segmentation_models as sm
 import cv2
 from tensorflow import keras
-import tensorflow as tf
 from callbacks_monitor import ProgressMonitor
 from models import build_model
 import albumentations as A
 
+# ────────────────────────────────────────────────────────────────
+# DEBUG FLAG
+# Al activar, guarda logs extra, augmentaciones y predicciones
+DEBUG = True  # Cambiar a False para desactivar debug
 
 # 0) Opciones de TF (si quieres quitar logs de XLA, descomenta)
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
 # os.environ['TF_XLA_FLAGS'] = '--xla_hlo_profile'
 
-tf.config.run_functions_eagerly(True)
+# tf.config.run_functions_eagerly(True)
 # Permitir que TensorFlow vaya pidiendo memoria GPU según la necesite, en lugar de reservarla toda.
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
@@ -52,6 +65,12 @@ def denormalize(x):
     x = (x - x_min) / (x_max - x_min)
     return x.clip(0, 1)
 
+
+# Carpetas de debug (solo si DEBUG)
+if DEBUG:
+    os.makedirs('debug/augmentations', exist_ok=True)
+    os.makedirs('debug/predictions', exist_ok=True)
+    os.makedirs('logs', exist_ok=True)
 # ──────────────────────────────────────────────────────────────────────────────
 # A) CONFIGURACIÓN DE LOGGING
 # ──────────────────────────────────────────────────────────────────────────────
@@ -63,20 +82,15 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',
     handlers=[logging.StreamHandler(log)]
 )
-#C:\Users\User\Desktop\tesis\data\processed_binary_384
-#C:\Users\User\Desktop\tesis\data\320x320
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # B) PARÁMETROS GLOBALES
 # ──────────────────────────────────────────────────────────────────────────────
 DATA_DIR    = r'C:\Users\User\Desktop\tesis\data\320x320'
-import os
-print("DATA_DIR =", DATA_DIR)
-print("Train images:", len(os.listdir(os.path.join(DATA_DIR, "Train", "images"))))
-print("Train masks: ", len(os.listdir(os.path.join(DATA_DIR, "Train", "masks"))))
-
 MODEL_NAME  = 'Unet_EfficientnetB3_final'
 BACKBONE    = 'efficientnetb3'
-BATCH_SIZE  = 8
+BATCH_SIZE  = 1
 CLASSES     = ['corrosion']
 LR          = 1e-4
 EPOCHS      = 1
@@ -184,16 +198,32 @@ class Dataloder(keras.utils.Sequence):
             np.random.seed(42)
             np.random.shuffle(self.indexes)
 
+# ────────────────────────────────────────────────────────────────
+# Callbacks debug de predicciones
+# ────────────────────────────────────────────────────────────────
+if DEBUG:
+    class SavePredictions(keras.callbacks.Callback):
+        def __init__(self, valid_loader, out_dir="debug/predictions", n_images=5):
+            super().__init__()
+            self.valid_loader = valid_loader
+            self.out_dir = out_dir
+            self.n = n_images
+        def on_epoch_end(self, epoch, logs=None):
+            for idx in range(min(self.n, len(self.valid_loader))):
+                x, y_true = self.valid_loader[idx]
+                y_pred = self.model.predict(x)[0,...,0]
+                mask = (y_pred > 0.5).astype('uint8')*255
+                cv2.imwrite(f"{self.out_dir}/epoch{epoch:02d}_img{idx:02d}.png",
+                            cv2.cvtColor(x[0], cv2.COLOR_RGB2BGR))
+                cv2.imwrite(f"{self.out_dir}/epoch{epoch:02d}_gt{idx:02d}.png",
+                            (y_true[0,...,0]*255).astype('uint8'))
+                cv2.imwrite(f"{self.out_dir}/epoch{epoch:02d}_pr{idx:02d}.png", mask)
+    save_pred_cb = SavePredictions(None)  # se asignará tras crear valid_loader
 
 # ──────────────────────────────────────────────────────────────────────────────
 # E) SCRIPT PRINCIPAL
 # ──────────────────────────────────────────────────────────────────────────────
 if __name__ == '__main__':
-    # al inicio de __main__
-    for i in range(3):
-        img, m = train_ds[i]
-        print("únicos valores de m:", np.unique(m))
-        visualize(image=img, gt_mask=m[...,0])
 
     
     
@@ -206,6 +236,8 @@ if __name__ == '__main__':
     valid_ds = Dataset(x_valid_dir, y_valid_dir, classes=CLASSES, augmentation=get_validation_augmentation(),preprocessing  = get_preprocessing(preprocess_input)  )
     train_loader = Dataloder(train_ds, batch_size=BATCH_SIZE, shuffle=True)
     valid_loader = Dataloder(valid_ds, batch_size=1, shuffle=False)
+    if DEBUG:
+        save_pred_cb.valid_loader = valid_loader
 
 
     # ——— Prueba de shapes ———
@@ -259,23 +291,28 @@ if __name__ == '__main__':
         # 6.1) nuevo modelo por arquitectura
         model = build_model(arch, BACKBONE, n_classes, activation, LR, input_shape=INPUT_SHAPE)
         cp = keras.callbacks.ModelCheckpoint(
-            filepath=os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5"),
+            filepath=os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"),
             save_weights_only=True,
-            save_best_only=False,
-            save_freq='epoch',         
+            save_best_only=True,
             mode='min'
         )
-        # 6.2) entrena
+
+        # 6.2) entrena (con DEBUG opcional para guardar predicciones)
+        cbs = [cp, reduce_lr, monitor_cb]
+        if DEBUG:
+            cbs.append(save_pred_cb)
+
         history = model.fit(
             train_loader,
             steps_per_epoch=len(train_loader),
             epochs=EPOCHS,
-            callbacks=[cp, reduce_lr , monitor_cb],  # ← usa los callbacks predefinidos
+            callbacks=cbs,              # ← usamos la lista dinámica
             validation_data=valid_loader,
-            validation_steps=len(valid_loader)#1##########################################################################len(valid_loader)
+            validation_steps=1
         )
+
         # ¡MUY IMPORTANTE! recarga pesos antes de evaluar test:
-        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5"))
+        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"))
         test_metrics = model.evaluate(test_loader, verbose=0)
 
         # 6.3) guarda en results
@@ -303,11 +340,8 @@ if __name__ == '__main__':
        # plt.close(fig)
 
         # 6.4) evalúa test y guarda
-        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.weights.h5"))
+        model.load_weights(os.path.join(MODEL_DIR, f"{MODEL_NAME}_{arch}.h5"))
         results[arch]['eval_test'] = model.evaluate(test_loader, verbose=0)
-                # justo después de entrenar y antes de recargar pesos
-        hist_df = pd.DataFrame(history.history)
-        hist_df.to_csv(f'callbacks/{MODEL_NAME}_{arch}_history.csv', index=False)
 
         # 6.5) exporta métricas a Excel
         df = pd.DataFrame({
@@ -352,5 +386,3 @@ if __name__ == '__main__':
             f"Val Loss={val_loss:.4f}, Val IoU={val_iou:.4f}, Val F1={val_f1:.4f} | "
             f"Test Loss={test_loss:.4f}, Test IoU={test_iou:.4f}, Test F1={test_f1:.4f}"
         )
-
-

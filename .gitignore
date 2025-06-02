@@ -23,7 +23,8 @@ __pycache__/
 ########################################
 # 4. Datos binarios y modelos
 ########################################
-# Imágenes – evita avisos CR/LF
+# Imágenes – evita avisos CR/LFgit remote -v
+
 *.png
 *.jpg
 *.jpeg
