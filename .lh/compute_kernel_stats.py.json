@@ -1,0 +1,18 @@
+{
+    "sourceFile": "compute_kernel_stats.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750038355382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750038355382,
+            "name": "Commit-0",
+            "content": "# compute_kernel_stats.py\r\nimport json\r\nimport glob\r\nimport cv2\r\nimport numpy as np\r\nfrom scipy.ndimage import distance_transform_edt\r\n\r\ndef main():\r\n    radii = []\r\n    # Usamos las máscaras rotuladas para medir pitting real\r\n    for mask_path in glob.glob('data/all_results/regimes/C75/train/masks_labeled/*.png'):\r\n        mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE) > 0\r\n        dt   = distance_transform_edt(mask)\r\n        # Para cada isla, tomo el mayor distance transform como radio\r\n        if np.any(mask):\r\n            radii.append(dt[mask].max())\r\n    # Calculo percentiles y redondeo a entero\r\n    p25, p50, p75 = np.percentile(radii, [25,50,75]).round().astype(int)\r\n    stats = {\"radii\": [int(p25), int(p50), int(p75)]}\r\n    with open('data/kernel_stats.json','w') as f:\r\n        json.dump(stats, f)\r\n    print(\"Kernel radii saved:\", stats)\r\n\r\nif __name__ == \"__main__\":\r\n    main()\r\n"
+        }
+    ]
+}

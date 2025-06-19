@@ -1,0 +1,18 @@
+{
+    "sourceFile": "requirements.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750039679488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750039679488,
+            "name": "Commit-0",
+            "content": "keras==2.4.0\r\npython-git\r\nkeras-applications\r\nimage-classifiers\r\nefficientnet\r\nsegmentation-models\r\ngit+https://github.com/qubvel/segmentation_models\r\nalbumentations==1.0.2\r\nalbumentations[imgaug]\r\nopencv-python-headless\r\nnumpy==1.19.5\r\npandas==1.1.5\r\nopenpyxl\r\nscikit-learn>=0.24.2\r\n\r\ntensorflow==2.4.1\r\ntensorflow-gpu==2.4.1\r\ntensorflow-addons==0.12.1\r\ntyping-extensions==3.7.4.3\r\ntypeguard==2.13.3\r\n"
+        }
+    ]
+}

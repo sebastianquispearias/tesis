@@ -1,0 +1,776 @@
+2025-06-16 17:42:28,340 INFO Entrenando arquitectura (Mean Teacher): baseline
+2025-06-16 17:42:31,229 INFO --- Época 1/80 (Mean Teacher) ---
+C:\Users\User\.conda\envs\tesis_tf38\lib\site-packages\tensorflow\python\data\ops\dataset_ops.py:3503: UserWarning: Even though the tf.config.experimental_run_functions_eagerly option is set, this option does not apply to tf.data functions. tf.data functions are still traced and executed as graphs.
+  warnings.warn(
+2025-06-16 17:43:08,492 INFO Época 0: sup=0.7904, cons=0.0061, total=0.7905 | val_loss=0.5764, IoU=0.2996, P=0.3170, R=0.9551, F1=0.4346
+2025-06-16 17:43:08,492 INFO baseline (MT) Época 1: Val Loss=0.5764, Val IoU=0.2996
+2025-06-16 17:43:08,716 INFO [semi] ▶ Nuevo best IoU_val=0.2996 (época 1)
+2025-06-16 17:43:08,716 INFO --- Época 2/80 (Mean Teacher) ---
+2025-06-16 17:43:36,292 INFO Época 1: sup=0.7704, cons=0.0069, total=0.7704 | val_loss=0.5232, IoU=0.3815, P=0.4346, R=0.9158, F1=0.5317
+2025-06-16 17:43:36,292 INFO baseline (MT) Época 2: Val Loss=0.5232, Val IoU=0.3815
+2025-06-16 17:43:36,560 INFO [semi] ▶ Nuevo best IoU_val=0.3815 (época 2)
+2025-06-16 17:43:36,560 INFO --- Época 3/80 (Mean Teacher) ---
+2025-06-16 17:44:04,358 INFO Época 2: sup=0.7673, cons=0.0068, total=0.7673 | val_loss=0.4760, IoU=0.4703, P=0.5824, R=0.8289, F1=0.6210
+2025-06-16 17:44:04,358 INFO baseline (MT) Época 3: Val Loss=0.4760, Val IoU=0.4703
+2025-06-16 17:44:04,611 INFO [semi] ▶ Nuevo best IoU_val=0.4703 (época 3)
+2025-06-16 17:44:04,612 INFO --- Época 4/80 (Mean Teacher) ---
+2025-06-16 17:44:32,554 INFO Época 3: sup=0.7641, cons=0.0092, total=0.7642 | val_loss=0.4382, IoU=0.5010, P=0.6315, R=0.8022, F1=0.6509
+2025-06-16 17:44:32,554 INFO baseline (MT) Época 4: Val Loss=0.4382, Val IoU=0.5010
+2025-06-16 17:44:32,813 INFO [semi] ▶ Nuevo best IoU_val=0.5010 (época 4)
+2025-06-16 17:44:32,813 INFO --- Época 5/80 (Mean Teacher) ---
+2025-06-16 17:45:00,336 INFO Época 4: sup=0.7527, cons=0.0106, total=0.7530 | val_loss=0.4323, IoU=0.5096, P=0.6412, R=0.8068, F1=0.6594
+2025-06-16 17:45:00,336 INFO baseline (MT) Época 5: Val Loss=0.4323, Val IoU=0.5096
+2025-06-16 17:45:00,594 INFO [semi] ▶ Nuevo best IoU_val=0.5096 (época 5)
+2025-06-16 17:45:00,595 INFO --- Época 6/80 (Mean Teacher) ---
+2025-06-16 17:45:28,187 INFO Época 5: sup=0.7640, cons=0.0119, total=0.7644 | val_loss=0.4285, IoU=0.5064, P=0.6796, R=0.7286, F1=0.6580
+2025-06-16 17:45:28,187 INFO baseline (MT) Época 6: Val Loss=0.4285, Val IoU=0.5064
+2025-06-16 17:45:28,187 INFO --- Época 7/80 (Mean Teacher) ---
+2025-06-16 17:45:56,452 INFO Época 6: sup=0.7643, cons=0.0130, total=0.7649 | val_loss=0.4114, IoU=0.5244, P=0.6805, R=0.7777, F1=0.6729
+2025-06-16 17:45:56,452 INFO baseline (MT) Época 7: Val Loss=0.4114, Val IoU=0.5244
+2025-06-16 17:45:56,711 INFO [semi] ▶ Nuevo best IoU_val=0.5244 (época 7)
+2025-06-16 17:45:56,711 INFO --- Época 8/80 (Mean Teacher) ---
+2025-06-16 17:46:24,353 INFO Época 7: sup=0.7524, cons=0.0102, total=0.7529 | val_loss=0.4111, IoU=0.5267, P=0.7458, R=0.6972, F1=0.6751
+2025-06-16 17:46:24,353 INFO baseline (MT) Época 8: Val Loss=0.4111, Val IoU=0.5267
+2025-06-16 17:46:24,607 INFO [semi] ▶ Nuevo best IoU_val=0.5267 (época 8)
+2025-06-16 17:46:24,607 INFO --- Época 9/80 (Mean Teacher) ---
+2025-06-16 17:46:52,365 INFO Época 8: sup=0.7570, cons=0.0080, total=0.7575 | val_loss=0.3920, IoU=0.5250, P=0.6716, R=0.7812, F1=0.6750
+2025-06-16 17:46:52,366 INFO baseline (MT) Época 9: Val Loss=0.3920, Val IoU=0.5250
+2025-06-16 17:46:52,366 INFO --- Época 10/80 (Mean Teacher) ---
+2025-06-16 17:47:20,169 INFO Época 9: sup=0.7588, cons=0.0092, total=0.7595 | val_loss=0.3883, IoU=0.5174, P=0.6597, R=0.7886, F1=0.6677
+2025-06-16 17:47:20,169 INFO baseline (MT) Época 10: Val Loss=0.3883, Val IoU=0.5174
+2025-06-16 17:47:20,169 INFO --- Época 11/80 (Mean Teacher) ---
+2025-06-16 17:47:48,209 INFO Época 10: sup=0.7589, cons=0.0151, total=0.7605 | val_loss=0.3795, IoU=0.5413, P=0.7567, R=0.7203, F1=0.6884
+2025-06-16 17:47:48,209 INFO baseline (MT) Época 11: Val Loss=0.3795, Val IoU=0.5413
+2025-06-16 17:47:48,463 INFO [semi] ▶ Nuevo best IoU_val=0.5413 (época 11)
+2025-06-16 17:47:48,463 INFO --- Época 12/80 (Mean Teacher) ---
+2025-06-16 17:48:16,168 INFO Época 11: sup=0.7583, cons=0.0135, total=0.7601 | val_loss=0.3673, IoU=0.5396, P=0.6843, R=0.8063, F1=0.6867
+2025-06-16 17:48:16,169 INFO baseline (MT) Época 12: Val Loss=0.3673, Val IoU=0.5396
+2025-06-16 17:48:16,169 INFO --- Época 13/80 (Mean Teacher) ---
+2025-06-16 17:48:43,822 INFO Época 12: sup=0.7584, cons=0.0139, total=0.7607 | val_loss=0.3645, IoU=0.5457, P=0.7019, R=0.8066, F1=0.6892
+2025-06-16 17:48:43,822 INFO baseline (MT) Época 13: Val Loss=0.3645, Val IoU=0.5457
+2025-06-16 17:48:44,081 INFO [semi] ▶ Nuevo best IoU_val=0.5457 (época 13)
+2025-06-16 17:48:44,081 INFO --- Época 14/80 (Mean Teacher) ---
+2025-06-16 17:49:11,634 INFO Época 13: sup=0.7564, cons=0.0103, total=0.7585 | val_loss=0.3578, IoU=0.5533, P=0.7183, R=0.7945, F1=0.6955
+2025-06-16 17:49:11,634 INFO baseline (MT) Época 14: Val Loss=0.3578, Val IoU=0.5533
+2025-06-16 17:49:11,900 INFO [semi] ▶ Nuevo best IoU_val=0.5533 (época 14)
+2025-06-16 17:49:11,900 INFO --- Época 15/80 (Mean Teacher) ---
+2025-06-16 17:49:39,520 INFO Época 14: sup=0.7852, cons=0.0140, total=0.7886 | val_loss=0.3555, IoU=0.5430, P=0.6733, R=0.8329, F1=0.6891
+2025-06-16 17:49:39,520 INFO baseline (MT) Época 15: Val Loss=0.3555, Val IoU=0.5430
+2025-06-16 17:49:39,520 INFO --- Época 16/80 (Mean Teacher) ---
+2025-06-16 17:50:07,582 INFO Época 15: sup=0.7548, cons=0.0143, total=0.7589 | val_loss=0.3474, IoU=0.5517, P=0.6899, R=0.8188, F1=0.6968
+2025-06-16 17:50:07,582 INFO baseline (MT) Época 16: Val Loss=0.3474, Val IoU=0.5517
+2025-06-16 17:50:07,582 INFO --- Época 17/80 (Mean Teacher) ---
+2025-06-16 17:50:35,794 INFO Época 16: sup=0.7556, cons=0.0151, total=0.7607 | val_loss=0.3531, IoU=0.5449, P=0.7284, R=0.7527, F1=0.6921
+2025-06-16 17:50:35,794 INFO baseline (MT) Época 17: Val Loss=0.3531, Val IoU=0.5449
+2025-06-16 17:50:35,794 INFO --- Época 18/80 (Mean Teacher) ---
+2025-06-16 17:51:03,368 INFO Época 17: sup=0.7538, cons=0.0118, total=0.7584 | val_loss=0.3488, IoU=0.5485, P=0.7187, R=0.7883, F1=0.6927
+2025-06-16 17:51:03,368 INFO baseline (MT) Época 18: Val Loss=0.3488, Val IoU=0.5485
+2025-06-16 17:51:03,369 INFO --- Época 19/80 (Mean Teacher) ---
+2025-06-16 17:51:30,818 INFO Época 18: sup=0.7794, cons=0.0075, total=0.7828 | val_loss=0.3347, IoU=0.5652, P=0.7185, R=0.8070, F1=0.7082
+2025-06-16 17:51:30,818 INFO baseline (MT) Época 19: Val Loss=0.3347, Val IoU=0.5652
+2025-06-16 17:51:31,091 INFO [semi] ▶ Nuevo best IoU_val=0.5652 (época 19)
+2025-06-16 17:51:31,091 INFO --- Época 20/80 (Mean Teacher) ---
+2025-06-16 17:51:58,958 INFO Época 19: sup=0.7778, cons=0.0134, total=0.7847 | val_loss=0.3417, IoU=0.5577, P=0.7384, R=0.7713, F1=0.6997
+2025-06-16 17:51:58,958 INFO baseline (MT) Época 20: Val Loss=0.3417, Val IoU=0.5577
+2025-06-16 17:51:58,958 INFO --- Época 21/80 (Mean Teacher) ---
+2025-06-16 17:52:26,527 INFO Época 20: sup=0.7656, cons=0.0097, total=0.7712 | val_loss=0.3523, IoU=0.5447, P=0.7481, R=0.7231, F1=0.6897
+2025-06-16 17:52:26,527 INFO baseline (MT) Época 21: Val Loss=0.3523, Val IoU=0.5447
+2025-06-16 17:52:26,527 INFO --- Época 22/80 (Mean Teacher) ---
+2025-06-16 17:52:54,421 INFO Época 21: sup=0.7401, cons=0.0142, total=0.7492 | val_loss=0.3507, IoU=0.5478, P=0.7900, R=0.6998, F1=0.6901
+2025-06-16 17:52:54,422 INFO baseline (MT) Época 22: Val Loss=0.3507, Val IoU=0.5478
+2025-06-16 17:52:54,422 INFO --- Época 23/80 (Mean Teacher) ---
+2025-06-16 17:53:21,861 INFO Época 22: sup=0.7529, cons=0.0151, total=0.7635 | val_loss=0.3388, IoU=0.5587, P=0.7198, R=0.7940, F1=0.7008
+2025-06-16 17:53:21,861 INFO baseline (MT) Época 23: Val Loss=0.3388, Val IoU=0.5587
+2025-06-16 17:53:21,861 INFO --- Época 24/80 (Mean Teacher) ---
+2025-06-16 17:53:49,692 INFO Época 23: sup=0.7772, cons=0.0068, total=0.7824 | val_loss=0.3175, IoU=0.5813, P=0.7619, R=0.7791, F1=0.7197
+2025-06-16 17:53:49,692 INFO baseline (MT) Época 24: Val Loss=0.3175, Val IoU=0.5813
+2025-06-16 17:53:49,949 INFO [semi] ▶ Nuevo best IoU_val=0.5813 (época 24)
+2025-06-16 17:53:49,949 INFO --- Época 25/80 (Mean Teacher) ---
+2025-06-16 17:54:17,847 INFO Época 24: sup=0.7532, cons=0.0072, total=0.7590 | val_loss=0.3344, IoU=0.5575, P=0.7511, R=0.7531, F1=0.6998
+2025-06-16 17:54:17,847 INFO baseline (MT) Época 25: Val Loss=0.3344, Val IoU=0.5575
+2025-06-16 17:54:17,847 INFO --- Época 26/80 (Mean Teacher) ---
+2025-06-16 17:54:45,683 INFO Época 25: sup=0.7533, cons=0.0136, total=0.7652 | val_loss=0.3335, IoU=0.5613, P=0.7645, R=0.7396, F1=0.7036
+2025-06-16 17:54:45,683 INFO baseline (MT) Época 26: Val Loss=0.3335, Val IoU=0.5613
+2025-06-16 17:54:45,683 INFO --- Época 27/80 (Mean Teacher) ---
+2025-06-16 17:55:13,184 INFO Época 26: sup=0.7716, cons=0.0154, total=0.7857 | val_loss=0.3558, IoU=0.5347, P=0.7776, R=0.6831, F1=0.6791
+2025-06-16 17:55:13,184 INFO baseline (MT) Época 27: Val Loss=0.3558, Val IoU=0.5347
+2025-06-16 17:55:13,185 INFO --- Época 28/80 (Mean Teacher) ---
+2025-06-16 17:55:40,736 INFO Época 27: sup=0.7539, cons=0.0145, total=0.7677 | val_loss=0.3435, IoU=0.5506, P=0.7995, R=0.6924, F1=0.6931
+2025-06-16 17:55:40,736 INFO baseline (MT) Época 28: Val Loss=0.3435, Val IoU=0.5506
+2025-06-16 17:55:40,736 INFO --- Época 29/80 (Mean Teacher) ---
+2025-06-16 17:56:08,818 INFO Época 28: sup=0.7887, cons=0.0144, total=0.8027 | val_loss=0.3377, IoU=0.5566, P=0.7673, R=0.7312, F1=0.6989
+2025-06-16 17:56:08,818 INFO baseline (MT) Época 29: Val Loss=0.3377, Val IoU=0.5566
+2025-06-16 17:56:08,818 INFO --- Época 30/80 (Mean Teacher) ---
+2025-06-16 17:56:36,830 INFO Época 29: sup=0.7542, cons=0.0134, total=0.7675 | val_loss=0.3521, IoU=0.5383, P=0.7762, R=0.6809, F1=0.6838
+2025-06-16 17:56:36,830 INFO baseline (MT) Época 30: Val Loss=0.3521, Val IoU=0.5383
+2025-06-16 17:56:36,830 INFO --- Época 31/80 (Mean Teacher) ---
+2025-06-16 17:57:04,501 INFO Época 30: sup=0.7597, cons=0.0128, total=0.7725 | val_loss=0.3775, IoU=0.5152, P=0.8015, R=0.6245, F1=0.6614
+2025-06-16 17:57:04,501 INFO baseline (MT) Época 31: Val Loss=0.3775, Val IoU=0.5152
+2025-06-16 17:57:04,501 INFO --- Época 32/80 (Mean Teacher) ---
+2025-06-16 17:57:32,209 INFO Época 31: sup=0.7526, cons=0.0148, total=0.7674 | val_loss=0.3767, IoU=0.5119, P=0.8218, R=0.6371, F1=0.6555
+2025-06-16 17:57:32,209 INFO baseline (MT) Época 32: Val Loss=0.3767, Val IoU=0.5119
+2025-06-16 17:57:32,209 INFO --- Época 33/80 (Mean Teacher) ---
+2025-06-16 17:58:00,477 INFO Época 32: sup=0.7613, cons=0.0143, total=0.7756 | val_loss=0.3584, IoU=0.5348, P=0.7931, R=0.6764, F1=0.6764
+2025-06-16 17:58:00,477 INFO baseline (MT) Época 33: Val Loss=0.3584, Val IoU=0.5348
+2025-06-16 17:58:00,477 INFO --- Época 34/80 (Mean Teacher) ---
+2025-06-16 17:58:28,139 INFO Época 33: sup=0.7508, cons=0.0124, total=0.7632 | val_loss=0.3447, IoU=0.5541, P=0.7856, R=0.7156, F1=0.6940
+2025-06-16 17:58:28,139 INFO baseline (MT) Época 34: Val Loss=0.3447, Val IoU=0.5541
+2025-06-16 17:58:28,139 INFO --- Época 35/80 (Mean Teacher) ---
+2025-06-16 17:58:56,025 INFO Época 34: sup=0.7628, cons=0.0134, total=0.7762 | val_loss=0.3243, IoU=0.5716, P=0.7465, R=0.7694, F1=0.7138
+2025-06-16 17:58:56,025 INFO baseline (MT) Época 35: Val Loss=0.3243, Val IoU=0.5716
+2025-06-16 17:58:56,026 INFO --- Época 36/80 (Mean Teacher) ---
+2025-06-16 17:59:23,554 INFO Época 35: sup=0.7512, cons=0.0141, total=0.7652 | val_loss=0.3448, IoU=0.5497, P=0.7982, R=0.6885, F1=0.6919
+2025-06-16 17:59:23,554 INFO baseline (MT) Época 36: Val Loss=0.3448, Val IoU=0.5497
+2025-06-16 17:59:23,554 INFO --- Época 37/80 (Mean Teacher) ---
+2025-06-16 17:59:51,328 INFO Época 36: sup=0.7510, cons=0.0131, total=0.7642 | val_loss=0.3573, IoU=0.5345, P=0.7985, R=0.6685, F1=0.6778
+2025-06-16 17:59:51,328 INFO baseline (MT) Época 37: Val Loss=0.3573, Val IoU=0.5345
+2025-06-16 17:59:51,328 INFO --- Época 38/80 (Mean Teacher) ---
+2025-06-16 18:00:19,285 INFO Época 37: sup=0.7511, cons=0.0057, total=0.7568 | val_loss=0.3524, IoU=0.5394, P=0.7942, R=0.6809, F1=0.6823
+2025-06-16 18:00:19,285 INFO baseline (MT) Época 38: Val Loss=0.3524, Val IoU=0.5394
+2025-06-16 18:00:19,285 INFO --- Época 39/80 (Mean Teacher) ---
+2025-06-16 18:00:47,035 INFO Época 38: sup=0.7585, cons=0.0128, total=0.7713 | val_loss=0.3446, IoU=0.5472, P=0.7731, R=0.7005, F1=0.6915
+2025-06-16 18:00:47,035 INFO baseline (MT) Época 39: Val Loss=0.3446, Val IoU=0.5472
+2025-06-16 18:00:47,035 INFO --- Época 40/80 (Mean Teacher) ---
+2025-06-16 18:01:14,584 INFO Época 39: sup=0.7511, cons=0.0121, total=0.7632 | val_loss=0.3862, IoU=0.5012, P=0.8339, R=0.6049, F1=0.6463
+2025-06-16 18:01:14,584 INFO baseline (MT) Época 40: Val Loss=0.3862, Val IoU=0.5012
+2025-06-16 18:01:14,584 INFO --- Época 41/80 (Mean Teacher) ---
+2025-06-16 18:01:42,441 INFO Época 40: sup=0.7505, cons=0.0070, total=0.7576 | val_loss=0.3487, IoU=0.5404, P=0.7663, R=0.7088, F1=0.6849
+2025-06-16 18:01:42,442 INFO baseline (MT) Época 41: Val Loss=0.3487, Val IoU=0.5404
+2025-06-16 18:01:42,442 INFO --- Época 42/80 (Mean Teacher) ---
+2025-06-16 18:02:10,700 INFO Época 41: sup=0.7563, cons=0.0111, total=0.7674 | val_loss=0.3540, IoU=0.5384, P=0.8186, R=0.6598, F1=0.6809
+2025-06-16 18:02:10,700 INFO baseline (MT) Época 42: Val Loss=0.3540, Val IoU=0.5384
+2025-06-16 18:02:10,700 INFO --- Época 43/80 (Mean Teacher) ---
+2025-06-16 18:02:38,777 INFO Época 42: sup=0.7499, cons=0.0141, total=0.7639 | val_loss=0.3395, IoU=0.5552, P=0.7932, R=0.7074, F1=0.6955
+2025-06-16 18:02:38,777 INFO baseline (MT) Época 43: Val Loss=0.3395, Val IoU=0.5552
+2025-06-16 18:02:38,777 INFO --- Época 44/80 (Mean Teacher) ---
+2025-06-16 18:03:06,616 INFO Época 43: sup=0.7665, cons=0.0129, total=0.7794 | val_loss=0.3477, IoU=0.5414, P=0.7916, R=0.6771, F1=0.6855
+2025-06-16 18:03:06,616 INFO baseline (MT) Época 44: Val Loss=0.3477, Val IoU=0.5414
+2025-06-16 18:03:06,616 INFO --- Época 45/80 (Mean Teacher) ---
+2025-06-16 18:03:34,486 INFO Época 44: sup=0.7445, cons=0.0148, total=0.7593 | val_loss=0.3785, IoU=0.5127, P=0.8205, R=0.6272, F1=0.6558
+2025-06-16 18:03:34,486 INFO baseline (MT) Época 45: Val Loss=0.3785, Val IoU=0.5127
+2025-06-16 18:03:34,486 INFO --- Época 46/80 (Mean Teacher) ---
+2025-06-16 18:04:02,465 INFO Época 45: sup=0.7502, cons=0.0123, total=0.7625 | val_loss=0.3695, IoU=0.5218, P=0.8060, R=0.6457, F1=0.6659
+2025-06-16 18:04:02,465 INFO baseline (MT) Época 46: Val Loss=0.3695, Val IoU=0.5218
+2025-06-16 18:04:02,465 INFO --- Época 47/80 (Mean Teacher) ---
+2025-06-16 18:04:30,237 INFO Época 46: sup=0.7512, cons=0.0144, total=0.7655 | val_loss=0.3757, IoU=0.5131, P=0.8153, R=0.6171, F1=0.6549
+2025-06-16 18:04:30,237 INFO baseline (MT) Época 47: Val Loss=0.3757, Val IoU=0.5131
+2025-06-16 18:04:30,237 INFO --- Época 48/80 (Mean Teacher) ---
+2025-06-16 18:04:58,300 INFO Época 47: sup=0.7505, cons=0.0078, total=0.7583 | val_loss=0.3605, IoU=0.5312, P=0.8280, R=0.6469, F1=0.6744
+2025-06-16 18:04:58,300 INFO baseline (MT) Época 48: Val Loss=0.3605, Val IoU=0.5312
+2025-06-16 18:04:58,300 INFO --- Época 49/80 (Mean Teacher) ---
+2025-06-16 18:05:25,961 INFO Época 48: sup=0.7501, cons=0.0119, total=0.7620 | val_loss=0.3890, IoU=0.4967, P=0.8328, R=0.5926, F1=0.6437
+2025-06-16 18:05:25,961 INFO baseline (MT) Época 49: Val Loss=0.3890, Val IoU=0.4967
+2025-06-16 18:05:25,961 INFO --- Época 50/80 (Mean Teacher) ---
+2025-06-16 18:05:54,057 INFO Época 49: sup=0.7515, cons=0.0121, total=0.7636 | val_loss=0.4069, IoU=0.4774, P=0.8344, R=0.5649, F1=0.6252
+2025-06-16 18:05:54,057 INFO baseline (MT) Época 50: Val Loss=0.4069, Val IoU=0.4774
+2025-06-16 18:05:54,058 INFO --- Época 51/80 (Mean Teacher) ---
+2025-06-16 18:06:22,097 INFO Época 50: sup=0.7540, cons=0.0131, total=0.7671 | val_loss=0.3925, IoU=0.4955, P=0.8235, R=0.6047, F1=0.6412
+2025-06-16 18:06:22,097 INFO baseline (MT) Época 51: Val Loss=0.3925, Val IoU=0.4955
+2025-06-16 18:06:22,097 INFO --- Época 52/80 (Mean Teacher) ---
+2025-06-16 18:06:49,931 INFO Época 51: sup=0.7511, cons=0.0114, total=0.7624 | val_loss=0.3724, IoU=0.5221, P=0.8089, R=0.6433, F1=0.6659
+2025-06-16 18:06:49,931 INFO baseline (MT) Época 52: Val Loss=0.3724, Val IoU=0.5221
+2025-06-16 18:06:49,932 INFO --- Época 53/80 (Mean Teacher) ---
+2025-06-16 18:07:17,640 INFO Época 52: sup=0.7513, cons=0.0142, total=0.7655 | val_loss=0.3663, IoU=0.5262, P=0.7993, R=0.6631, F1=0.6703
+2025-06-16 18:07:17,640 INFO baseline (MT) Época 53: Val Loss=0.3663, Val IoU=0.5262
+2025-06-16 18:07:17,640 INFO --- Época 54/80 (Mean Teacher) ---
+2025-06-16 18:07:45,568 INFO Época 53: sup=0.7710, cons=0.0137, total=0.7847 | val_loss=0.3698, IoU=0.5216, P=0.8144, R=0.6397, F1=0.6672
+2025-06-16 18:07:45,568 INFO baseline (MT) Época 54: Val Loss=0.3698, Val IoU=0.5216
+2025-06-16 18:07:45,568 INFO --- Época 55/80 (Mean Teacher) ---
+2025-06-16 18:08:13,856 INFO Época 54: sup=0.7490, cons=0.0119, total=0.7609 | val_loss=0.3672, IoU=0.5268, P=0.8198, R=0.6537, F1=0.6702
+2025-06-16 18:08:13,857 INFO baseline (MT) Época 55: Val Loss=0.3672, Val IoU=0.5268
+2025-06-16 18:08:13,857 INFO --- Época 56/80 (Mean Teacher) ---
+2025-06-16 18:08:42,117 INFO Época 55: sup=0.7510, cons=0.0115, total=0.7625 | val_loss=0.3541, IoU=0.5416, P=0.7966, R=0.6911, F1=0.6834
+2025-06-16 18:08:42,117 INFO baseline (MT) Época 56: Val Loss=0.3541, Val IoU=0.5416
+2025-06-16 18:08:42,117 INFO --- Época 57/80 (Mean Teacher) ---
+2025-06-16 18:09:09,820 INFO Época 56: sup=0.7720, cons=0.0084, total=0.7804 | val_loss=0.3492, IoU=0.5411, P=0.7970, R=0.6852, F1=0.6845
+2025-06-16 18:09:09,820 INFO baseline (MT) Época 57: Val Loss=0.3492, Val IoU=0.5411
+2025-06-16 18:09:09,820 INFO --- Época 58/80 (Mean Teacher) ---
+2025-06-16 18:09:37,791 INFO Época 57: sup=0.7514, cons=0.0118, total=0.7632 | val_loss=0.3657, IoU=0.5267, P=0.8092, R=0.6529, F1=0.6717
+2025-06-16 18:09:37,791 INFO baseline (MT) Época 58: Val Loss=0.3657, Val IoU=0.5267
+2025-06-16 18:09:37,791 INFO --- Época 59/80 (Mean Teacher) ---
+2025-06-16 18:10:05,886 INFO Época 58: sup=0.7240, cons=0.0077, total=0.7317 | val_loss=0.3540, IoU=0.5344, P=0.8087, R=0.6683, F1=0.6777
+2025-06-16 18:10:05,886 INFO baseline (MT) Época 59: Val Loss=0.3540, Val IoU=0.5344
+2025-06-16 18:10:05,886 INFO --- Época 60/80 (Mean Teacher) ---
+2025-06-16 18:10:33,920 INFO Época 59: sup=0.7499, cons=0.0131, total=0.7630 | val_loss=0.3606, IoU=0.5252, P=0.8134, R=0.6594, F1=0.6693
+2025-06-16 18:10:33,920 INFO baseline (MT) Época 60: Val Loss=0.3606, Val IoU=0.5252
+2025-06-16 18:10:33,920 INFO --- Época 61/80 (Mean Teacher) ---
+2025-06-16 18:11:01,818 INFO Época 60: sup=0.7517, cons=0.0122, total=0.7640 | val_loss=0.3429, IoU=0.5475, P=0.7878, R=0.7153, F1=0.6893
+2025-06-16 18:11:01,818 INFO baseline (MT) Época 61: Val Loss=0.3429, Val IoU=0.5475
+2025-06-16 18:11:01,818 INFO --- Época 62/80 (Mean Teacher) ---
+2025-06-16 18:11:29,699 INFO Época 61: sup=0.7507, cons=0.0073, total=0.7580 | val_loss=0.3367, IoU=0.5555, P=0.8017, R=0.6913, F1=0.6980
+2025-06-16 18:11:29,699 INFO baseline (MT) Época 62: Val Loss=0.3367, Val IoU=0.5555
+2025-06-16 18:11:29,699 INFO --- Época 63/80 (Mean Teacher) ---
+2025-06-16 18:11:57,908 INFO Época 62: sup=0.7370, cons=0.0130, total=0.7500 | val_loss=0.3496, IoU=0.5427, P=0.7898, R=0.6900, F1=0.6865
+2025-06-16 18:11:57,908 INFO baseline (MT) Época 63: Val Loss=0.3496, Val IoU=0.5427
+2025-06-16 18:11:57,908 INFO --- Época 64/80 (Mean Teacher) ---
+2025-06-16 18:12:25,960 INFO Época 63: sup=0.7499, cons=0.0076, total=0.7575 | val_loss=0.3405, IoU=0.5512, P=0.7798, R=0.7133, F1=0.6947
+2025-06-16 18:12:25,960 INFO baseline (MT) Época 64: Val Loss=0.3405, Val IoU=0.5512
+2025-06-16 18:12:25,960 INFO --- Época 65/80 (Mean Teacher) ---
+2025-06-16 18:12:54,314 INFO Época 64: sup=0.7387, cons=0.0107, total=0.7494 | val_loss=0.3578, IoU=0.5288, P=0.8163, R=0.6622, F1=0.6728
+2025-06-16 18:12:54,314 INFO baseline (MT) Época 65: Val Loss=0.3578, Val IoU=0.5288
+2025-06-16 18:12:54,314 INFO --- Época 66/80 (Mean Teacher) ---
+2025-06-16 18:13:22,097 INFO Época 65: sup=0.7497, cons=0.0104, total=0.7601 | val_loss=0.3584, IoU=0.5354, P=0.8111, R=0.6603, F1=0.6798
+2025-06-16 18:13:22,097 INFO baseline (MT) Época 66: Val Loss=0.3584, Val IoU=0.5354
+2025-06-16 18:13:22,097 INFO --- Época 67/80 (Mean Teacher) ---
+2025-06-16 18:13:50,130 INFO Época 66: sup=0.7604, cons=0.0102, total=0.7707 | val_loss=0.3731, IoU=0.5185, P=0.8231, R=0.6338, F1=0.6651
+2025-06-16 18:13:50,130 INFO baseline (MT) Época 67: Val Loss=0.3731, Val IoU=0.5185
+2025-06-16 18:13:50,130 INFO --- Época 68/80 (Mean Teacher) ---
+2025-06-16 18:14:18,622 INFO Época 67: sup=0.7502, cons=0.0073, total=0.7575 | val_loss=0.3747, IoU=0.5101, P=0.8180, R=0.6248, F1=0.6564
+2025-06-16 18:14:18,622 INFO baseline (MT) Época 68: Val Loss=0.3747, Val IoU=0.5101
+2025-06-16 18:14:18,622 INFO --- Época 69/80 (Mean Teacher) ---
+2025-06-16 18:14:46,936 INFO Época 68: sup=0.7536, cons=0.0103, total=0.7639 | val_loss=0.3529, IoU=0.5433, P=0.8015, R=0.6822, F1=0.6875
+2025-06-16 18:14:46,936 INFO baseline (MT) Época 69: Val Loss=0.3529, Val IoU=0.5433
+2025-06-16 18:14:46,936 INFO --- Época 70/80 (Mean Teacher) ---
+2025-06-16 18:15:15,181 INFO Época 69: sup=0.7277, cons=0.0099, total=0.7377 | val_loss=0.3841, IoU=0.5174, P=0.8388, R=0.6298, F1=0.6641
+2025-06-16 18:15:15,181 INFO baseline (MT) Época 70: Val Loss=0.3841, Val IoU=0.5174
+2025-06-16 18:15:15,181 INFO --- Época 71/80 (Mean Teacher) ---
+2025-06-16 18:15:43,585 INFO Época 70: sup=0.7990, cons=0.0109, total=0.8099 | val_loss=0.3591, IoU=0.5393, P=0.8204, R=0.6711, F1=0.6814
+2025-06-16 18:15:43,585 INFO baseline (MT) Época 71: Val Loss=0.3591, Val IoU=0.5393
+2025-06-16 18:15:43,585 INFO --- Época 72/80 (Mean Teacher) ---
+2025-06-16 18:16:11,785 INFO Época 71: sup=0.7496, cons=0.0109, total=0.7605 | val_loss=0.3570, IoU=0.5447, P=0.8222, R=0.6777, F1=0.6874
+2025-06-16 18:16:11,785 INFO baseline (MT) Época 72: Val Loss=0.3570, Val IoU=0.5447
+2025-06-16 18:16:11,785 INFO --- Época 73/80 (Mean Teacher) ---
+2025-06-16 18:16:39,972 INFO Época 72: sup=0.7314, cons=0.0093, total=0.7407 | val_loss=0.3582, IoU=0.5398, P=0.8324, R=0.6589, F1=0.6833
+2025-06-16 18:16:39,972 INFO baseline (MT) Época 73: Val Loss=0.3582, Val IoU=0.5398
+2025-06-16 18:16:39,972 INFO --- Época 74/80 (Mean Teacher) ---
+2025-06-16 18:17:08,067 INFO Época 73: sup=0.7517, cons=0.0107, total=0.7624 | val_loss=0.3596, IoU=0.5427, P=0.8342, R=0.6644, F1=0.6872
+2025-06-16 18:17:08,067 INFO baseline (MT) Época 74: Val Loss=0.3596, Val IoU=0.5427
+2025-06-16 18:17:08,067 INFO --- Época 75/80 (Mean Teacher) ---
+2025-06-16 18:17:36,131 INFO Época 74: sup=0.7757, cons=0.0075, total=0.7833 | val_loss=0.3901, IoU=0.5059, P=0.8438, R=0.6274, F1=0.6503
+2025-06-16 18:17:36,131 INFO baseline (MT) Época 75: Val Loss=0.3901, Val IoU=0.5059
+2025-06-16 18:17:36,131 INFO --- Época 76/80 (Mean Teacher) ---
+2025-06-16 18:18:04,469 INFO Época 75: sup=0.7896, cons=0.0079, total=0.7976 | val_loss=0.3986, IoU=0.4976, P=0.8402, R=0.6137, F1=0.6416
+2025-06-16 18:18:04,469 INFO baseline (MT) Época 76: Val Loss=0.3986, Val IoU=0.4976
+2025-06-16 18:18:04,469 INFO --- Época 77/80 (Mean Teacher) ---
+2025-06-16 18:18:32,713 INFO Época 76: sup=0.7501, cons=0.0127, total=0.7628 | val_loss=0.3472, IoU=0.5484, P=0.8058, R=0.6907, F1=0.6914
+2025-06-16 18:18:32,713 INFO baseline (MT) Época 77: Val Loss=0.3472, Val IoU=0.5484
+2025-06-16 18:18:32,713 INFO --- Época 78/80 (Mean Teacher) ---
+2025-06-16 18:19:00,875 INFO Época 77: sup=0.7504, cons=0.0122, total=0.7626 | val_loss=0.3835, IoU=0.5132, P=0.8545, R=0.6193, F1=0.6564
+2025-06-16 18:19:00,875 INFO baseline (MT) Época 78: Val Loss=0.3835, Val IoU=0.5132
+2025-06-16 18:19:00,875 INFO --- Época 79/80 (Mean Teacher) ---
+2025-06-16 18:19:28,819 INFO Época 78: sup=0.7631, cons=0.0075, total=0.7706 | val_loss=0.3548, IoU=0.5407, P=0.8235, R=0.6653, F1=0.6842
+2025-06-16 18:19:28,819 INFO baseline (MT) Época 79: Val Loss=0.3548, Val IoU=0.5407
+2025-06-16 18:19:28,819 INFO --- Época 80/80 (Mean Teacher) ---
+2025-06-16 18:19:57,178 INFO Época 79: sup=0.7507, cons=0.0108, total=0.7615 | val_loss=0.4015, IoU=0.4996, P=0.8592, R=0.6005, F1=0.6438
+2025-06-16 18:19:57,178 INFO baseline (MT) Época 80: Val Loss=0.4015, Val IoU=0.4996
+2025-06-16 18:19:57,343 INFO [semi] ✔ Cargado best checkpoint época 24 con IoU_val=0.5813
+2025-06-16 18:19:59,633 INFO baseline (MT) Test final: Loss=0.3128, IoU=0.5956
+2025-06-16 18:19:59,633 INFO Entrenando arquitectura (Mean Teacher): pspnet
+2025-06-16 18:20:01,968 INFO --- Época 1/80 (Mean Teacher) ---
+2025-06-16 18:20:13,235 INFO Época 0: sup=0.7746, cons=0.0101, total=0.7747 | val_loss=0.5708, IoU=0.3092, P=0.3307, R=0.9607, F1=0.4479
+2025-06-16 18:20:13,235 INFO pspnet (MT) Época 1: Val Loss=0.5708, Val IoU=0.3092
+2025-06-16 18:20:13,301 INFO [semi] ▶ Nuevo best IoU_val=0.3092 (época 1)
+2025-06-16 18:20:13,301 INFO --- Época 2/80 (Mean Teacher) ---
+2025-06-16 18:20:23,593 INFO Época 1: sup=0.7744, cons=0.0054, total=0.7745 | val_loss=0.5372, IoU=0.3367, P=0.3652, R=0.9687, F1=0.4804
+2025-06-16 18:20:23,593 INFO pspnet (MT) Época 2: Val Loss=0.5372, Val IoU=0.3367
+2025-06-16 18:20:23,671 INFO [semi] ▶ Nuevo best IoU_val=0.3367 (época 2)
+2025-06-16 18:20:23,671 INFO --- Época 3/80 (Mean Teacher) ---
+2025-06-16 18:20:33,999 INFO Época 2: sup=0.7991, cons=0.0112, total=0.7993 | val_loss=0.4938, IoU=0.3893, P=0.4391, R=0.9248, F1=0.5402
+2025-06-16 18:20:34,000 INFO pspnet (MT) Época 3: Val Loss=0.4938, Val IoU=0.3893
+2025-06-16 18:20:34,078 INFO [semi] ▶ Nuevo best IoU_val=0.3893 (época 3)
+2025-06-16 18:20:34,078 INFO --- Época 4/80 (Mean Teacher) ---
+2025-06-16 18:20:44,270 INFO Época 3: sup=0.7769, cons=0.0075, total=0.7770 | val_loss=0.4504, IoU=0.4291, P=0.5476, R=0.7739, F1=0.5815
+2025-06-16 18:20:44,270 INFO pspnet (MT) Época 4: Val Loss=0.4504, Val IoU=0.4291
+2025-06-16 18:20:44,349 INFO [semi] ▶ Nuevo best IoU_val=0.4291 (época 4)
+2025-06-16 18:20:44,349 INFO --- Época 5/80 (Mean Teacher) ---
+2025-06-16 18:20:54,621 INFO Época 4: sup=0.7632, cons=0.0136, total=0.7635 | val_loss=0.4425, IoU=0.4300, P=0.5216, R=0.8509, F1=0.5804
+2025-06-16 18:20:54,621 INFO pspnet (MT) Época 5: Val Loss=0.4425, Val IoU=0.4300
+2025-06-16 18:20:54,698 INFO [semi] ▶ Nuevo best IoU_val=0.4300 (época 5)
+2025-06-16 18:20:54,698 INFO --- Época 6/80 (Mean Teacher) ---
+2025-06-16 18:21:04,903 INFO Época 5: sup=0.7714, cons=0.0132, total=0.7718 | val_loss=0.4264, IoU=0.4439, P=0.6074, R=0.7062, F1=0.5971
+2025-06-16 18:21:04,903 INFO pspnet (MT) Época 6: Val Loss=0.4264, Val IoU=0.4439
+2025-06-16 18:21:04,980 INFO [semi] ▶ Nuevo best IoU_val=0.4439 (época 6)
+2025-06-16 18:21:04,980 INFO --- Época 7/80 (Mean Teacher) ---
+2025-06-16 18:21:15,092 INFO Época 6: sup=0.7666, cons=0.0095, total=0.7670 | val_loss=0.4160, IoU=0.4576, P=0.5665, R=0.7938, F1=0.6126
+2025-06-16 18:21:15,092 INFO pspnet (MT) Época 7: Val Loss=0.4160, Val IoU=0.4576
+2025-06-16 18:21:15,169 INFO [semi] ▶ Nuevo best IoU_val=0.4576 (época 7)
+2025-06-16 18:21:15,169 INFO --- Época 8/80 (Mean Teacher) ---
+2025-06-16 18:21:25,484 INFO Época 7: sup=0.7699, cons=0.0112, total=0.7705 | val_loss=0.4056, IoU=0.4644, P=0.5820, R=0.7988, F1=0.6175
+2025-06-16 18:21:25,484 INFO pspnet (MT) Época 8: Val Loss=0.4056, Val IoU=0.4644
+2025-06-16 18:21:25,567 INFO [semi] ▶ Nuevo best IoU_val=0.4644 (época 8)
+2025-06-16 18:21:25,567 INFO --- Época 9/80 (Mean Teacher) ---
+2025-06-16 18:21:35,864 INFO Época 8: sup=0.7608, cons=0.0096, total=0.7614 | val_loss=0.4020, IoU=0.4665, P=0.5806, R=0.8187, F1=0.6185
+2025-06-16 18:21:35,864 INFO pspnet (MT) Época 9: Val Loss=0.4020, Val IoU=0.4665
+2025-06-16 18:21:35,945 INFO [semi] ▶ Nuevo best IoU_val=0.4665 (época 9)
+2025-06-16 18:21:35,945 INFO --- Época 10/80 (Mean Teacher) ---
+2025-06-16 18:21:46,233 INFO Época 9: sup=0.7582, cons=0.0141, total=0.7595 | val_loss=0.4096, IoU=0.4598, P=0.6128, R=0.7291, F1=0.6136
+2025-06-16 18:21:46,233 INFO pspnet (MT) Época 10: Val Loss=0.4096, Val IoU=0.4598
+2025-06-16 18:21:46,233 INFO --- Época 11/80 (Mean Teacher) ---
+2025-06-16 18:21:56,536 INFO Época 10: sup=0.7595, cons=0.0136, total=0.7610 | val_loss=0.3922, IoU=0.4799, P=0.6261, R=0.7610, F1=0.6313
+2025-06-16 18:21:56,536 INFO pspnet (MT) Época 11: Val Loss=0.3922, Val IoU=0.4799
+2025-06-16 18:21:56,613 INFO [semi] ▶ Nuevo best IoU_val=0.4799 (época 11)
+2025-06-16 18:21:56,613 INFO --- Época 12/80 (Mean Teacher) ---
+2025-06-16 18:22:06,846 INFO Época 11: sup=0.7593, cons=0.0143, total=0.7612 | val_loss=0.3890, IoU=0.4883, P=0.6316, R=0.8048, F1=0.6359
+2025-06-16 18:22:06,846 INFO pspnet (MT) Época 12: Val Loss=0.3890, Val IoU=0.4883
+2025-06-16 18:22:06,926 INFO [semi] ▶ Nuevo best IoU_val=0.4883 (época 12)
+2025-06-16 18:22:06,926 INFO --- Época 13/80 (Mean Teacher) ---
+2025-06-16 18:22:17,234 INFO Época 12: sup=0.7574, cons=0.0142, total=0.7597 | val_loss=0.3857, IoU=0.4848, P=0.6167, R=0.8083, F1=0.6342
+2025-06-16 18:22:17,234 INFO pspnet (MT) Época 13: Val Loss=0.3857, Val IoU=0.4848
+2025-06-16 18:22:17,234 INFO --- Época 14/80 (Mean Teacher) ---
+2025-06-16 18:22:27,470 INFO Época 13: sup=0.7461, cons=0.0084, total=0.7478 | val_loss=0.3903, IoU=0.4778, P=0.5943, R=0.8251, F1=0.6286
+2025-06-16 18:22:27,470 INFO pspnet (MT) Época 14: Val Loss=0.3903, Val IoU=0.4778
+2025-06-16 18:22:27,470 INFO --- Época 15/80 (Mean Teacher) ---
+2025-06-16 18:22:37,763 INFO Época 14: sup=0.7727, cons=0.0134, total=0.7760 | val_loss=0.3719, IoU=0.5004, P=0.6947, R=0.7272, F1=0.6493
+2025-06-16 18:22:37,763 INFO pspnet (MT) Época 15: Val Loss=0.3719, Val IoU=0.5004
+2025-06-16 18:22:37,839 INFO [semi] ▶ Nuevo best IoU_val=0.5004 (época 15)
+2025-06-16 18:22:37,839 INFO --- Época 16/80 (Mean Teacher) ---
+2025-06-16 18:22:48,190 INFO Época 15: sup=0.7557, cons=0.0146, total=0.7599 | val_loss=0.3837, IoU=0.4850, P=0.6361, R=0.7807, F1=0.6344
+2025-06-16 18:22:48,190 INFO pspnet (MT) Época 16: Val Loss=0.3837, Val IoU=0.4850
+2025-06-16 18:22:48,190 INFO --- Época 17/80 (Mean Teacher) ---
+2025-06-16 18:22:58,311 INFO Época 16: sup=0.7567, cons=0.0131, total=0.7611 | val_loss=0.3758, IoU=0.4979, P=0.7122, R=0.7050, F1=0.6478
+2025-06-16 18:22:58,311 INFO pspnet (MT) Época 17: Val Loss=0.3758, Val IoU=0.4979
+2025-06-16 18:22:58,311 INFO --- Época 18/80 (Mean Teacher) ---
+2025-06-16 18:23:08,537 INFO Época 17: sup=0.7561, cons=0.0137, total=0.7615 | val_loss=0.3657, IoU=0.5070, P=0.6612, R=0.7854, F1=0.6541
+2025-06-16 18:23:08,537 INFO pspnet (MT) Época 18: Val Loss=0.3657, Val IoU=0.5070
+2025-06-16 18:23:08,616 INFO [semi] ▶ Nuevo best IoU_val=0.5070 (época 18)
+2025-06-16 18:23:08,616 INFO --- Época 19/80 (Mean Teacher) ---
+2025-06-16 18:23:18,723 INFO Época 18: sup=0.7588, cons=0.0137, total=0.7650 | val_loss=0.3661, IoU=0.5029, P=0.6512, R=0.7921, F1=0.6517
+2025-06-16 18:23:18,723 INFO pspnet (MT) Época 19: Val Loss=0.3661, Val IoU=0.5029
+2025-06-16 18:23:18,723 INFO --- Época 20/80 (Mean Teacher) ---
+2025-06-16 18:23:28,871 INFO Época 19: sup=0.7979, cons=0.0144, total=0.8053 | val_loss=0.3713, IoU=0.5020, P=0.6703, R=0.7757, F1=0.6490
+2025-06-16 18:23:28,871 INFO pspnet (MT) Época 20: Val Loss=0.3713, Val IoU=0.5020
+2025-06-16 18:23:28,871 INFO --- Época 21/80 (Mean Teacher) ---
+2025-06-16 18:23:39,037 INFO Época 20: sup=0.7553, cons=0.0108, total=0.7615 | val_loss=0.3683, IoU=0.5002, P=0.6411, R=0.8171, F1=0.6486
+2025-06-16 18:23:39,037 INFO pspnet (MT) Época 21: Val Loss=0.3683, Val IoU=0.5002
+2025-06-16 18:23:39,037 INFO --- Época 22/80 (Mean Teacher) ---
+2025-06-16 18:23:49,145 INFO Época 21: sup=0.7414, cons=0.0117, total=0.7489 | val_loss=0.3682, IoU=0.4956, P=0.6027, R=0.8576, F1=0.6456
+2025-06-16 18:23:49,145 INFO pspnet (MT) Época 22: Val Loss=0.3682, Val IoU=0.4956
+2025-06-16 18:23:49,145 INFO --- Época 23/80 (Mean Teacher) ---
+2025-06-16 18:23:59,399 INFO Época 22: sup=0.7600, cons=0.0132, total=0.7692 | val_loss=0.3585, IoU=0.5102, P=0.6562, R=0.8065, F1=0.6579
+2025-06-16 18:23:59,399 INFO pspnet (MT) Época 23: Val Loss=0.3585, Val IoU=0.5102
+2025-06-16 18:23:59,476 INFO [semi] ▶ Nuevo best IoU_val=0.5102 (época 23)
+2025-06-16 18:23:59,477 INFO --- Época 24/80 (Mean Teacher) ---
+2025-06-16 18:24:09,735 INFO Época 23: sup=0.7549, cons=0.0096, total=0.7622 | val_loss=0.3573, IoU=0.5163, P=0.6754, R=0.7820, F1=0.6650
+2025-06-16 18:24:09,735 INFO pspnet (MT) Época 24: Val Loss=0.3573, Val IoU=0.5163
+2025-06-16 18:24:09,815 INFO [semi] ▶ Nuevo best IoU_val=0.5163 (época 24)
+2025-06-16 18:24:09,815 INFO --- Época 25/80 (Mean Teacher) ---
+2025-06-16 18:24:20,008 INFO Época 24: sup=0.7403, cons=0.0131, total=0.7510 | val_loss=0.3570, IoU=0.5170, P=0.6934, R=0.7511, F1=0.6666
+2025-06-16 18:24:20,008 INFO pspnet (MT) Época 25: Val Loss=0.3570, Val IoU=0.5170
+2025-06-16 18:24:20,087 INFO [semi] ▶ Nuevo best IoU_val=0.5170 (época 25)
+2025-06-16 18:24:20,087 INFO --- Época 26/80 (Mean Teacher) ---
+2025-06-16 18:24:30,307 INFO Época 25: sup=0.7577, cons=0.0149, total=0.7707 | val_loss=0.3621, IoU=0.5096, P=0.7136, R=0.7232, F1=0.6589
+2025-06-16 18:24:30,307 INFO pspnet (MT) Época 26: Val Loss=0.3621, Val IoU=0.5096
+2025-06-16 18:24:30,307 INFO --- Época 27/80 (Mean Teacher) ---
+2025-06-16 18:24:40,425 INFO Época 26: sup=0.7582, cons=0.0061, total=0.7637 | val_loss=0.3519, IoU=0.5183, P=0.6625, R=0.8112, F1=0.6664
+2025-06-16 18:24:40,425 INFO pspnet (MT) Época 27: Val Loss=0.3519, Val IoU=0.5183
+2025-06-16 18:24:40,506 INFO [semi] ▶ Nuevo best IoU_val=0.5183 (época 27)
+2025-06-16 18:24:40,506 INFO --- Época 28/80 (Mean Teacher) ---
+2025-06-16 18:24:50,638 INFO Época 27: sup=0.7542, cons=0.0091, total=0.7629 | val_loss=0.3533, IoU=0.5168, P=0.6811, R=0.7820, F1=0.6648
+2025-06-16 18:24:50,638 INFO pspnet (MT) Época 28: Val Loss=0.3533, Val IoU=0.5168
+2025-06-16 18:24:50,638 INFO --- Época 29/80 (Mean Teacher) ---
+2025-06-16 18:25:00,771 INFO Época 28: sup=0.7369, cons=0.0084, total=0.7452 | val_loss=0.3658, IoU=0.5068, P=0.7069, R=0.7440, F1=0.6538
+2025-06-16 18:25:00,771 INFO pspnet (MT) Época 29: Val Loss=0.3658, Val IoU=0.5068
+2025-06-16 18:25:00,771 INFO --- Época 30/80 (Mean Teacher) ---
+2025-06-16 18:25:10,877 INFO Época 29: sup=0.7571, cons=0.0129, total=0.7699 | val_loss=0.3678, IoU=0.5008, P=0.6755, R=0.7487, F1=0.6523
+2025-06-16 18:25:10,877 INFO pspnet (MT) Época 30: Val Loss=0.3678, Val IoU=0.5008
+2025-06-16 18:25:10,877 INFO --- Época 31/80 (Mean Teacher) ---
+2025-06-16 18:25:21,013 INFO Época 30: sup=0.7539, cons=0.0076, total=0.7615 | val_loss=0.3581, IoU=0.5135, P=0.7241, R=0.7233, F1=0.6622
+2025-06-16 18:25:21,013 INFO pspnet (MT) Época 31: Val Loss=0.3581, Val IoU=0.5135
+2025-06-16 18:25:21,013 INFO --- Época 32/80 (Mean Teacher) ---
+2025-06-16 18:25:31,269 INFO Época 31: sup=0.7558, cons=0.0083, total=0.7641 | val_loss=0.3696, IoU=0.5049, P=0.7451, R=0.7074, F1=0.6517
+2025-06-16 18:25:31,269 INFO pspnet (MT) Época 32: Val Loss=0.3696, Val IoU=0.5049
+2025-06-16 18:25:31,269 INFO --- Época 33/80 (Mean Teacher) ---
+2025-06-16 18:25:41,424 INFO Época 32: sup=0.7359, cons=0.0086, total=0.7445 | val_loss=0.3676, IoU=0.5047, P=0.7483, R=0.7179, F1=0.6484
+2025-06-16 18:25:41,424 INFO pspnet (MT) Época 33: Val Loss=0.3676, Val IoU=0.5047
+2025-06-16 18:25:41,424 INFO --- Época 34/80 (Mean Teacher) ---
+2025-06-16 18:25:51,709 INFO Época 33: sup=0.7535, cons=0.0128, total=0.7663 | val_loss=0.3560, IoU=0.5164, P=0.6635, R=0.8133, F1=0.6639
+2025-06-16 18:25:51,709 INFO pspnet (MT) Época 34: Val Loss=0.3560, Val IoU=0.5164
+2025-06-16 18:25:51,709 INFO --- Época 35/80 (Mean Teacher) ---
+2025-06-16 18:26:02,297 INFO Época 34: sup=0.7759, cons=0.0145, total=0.7904 | val_loss=0.3617, IoU=0.5097, P=0.7058, R=0.7245, F1=0.6587
+2025-06-16 18:26:02,297 INFO pspnet (MT) Época 35: Val Loss=0.3617, Val IoU=0.5097
+2025-06-16 18:26:02,297 INFO --- Época 36/80 (Mean Teacher) ---
+2025-06-16 18:26:12,742 INFO Época 35: sup=0.7520, cons=0.0121, total=0.7641 | val_loss=0.3758, IoU=0.5004, P=0.7228, R=0.7135, F1=0.6481
+2025-06-16 18:26:12,742 INFO pspnet (MT) Época 36: Val Loss=0.3758, Val IoU=0.5004
+2025-06-16 18:26:12,742 INFO --- Época 37/80 (Mean Teacher) ---
+2025-06-16 18:26:23,231 INFO Época 36: sup=0.7511, cons=0.0117, total=0.7628 | val_loss=0.3505, IoU=0.5225, P=0.6988, R=0.7796, F1=0.6684
+2025-06-16 18:26:23,231 INFO pspnet (MT) Época 37: Val Loss=0.3505, Val IoU=0.5225
+2025-06-16 18:26:23,315 INFO [semi] ▶ Nuevo best IoU_val=0.5225 (época 37)
+2025-06-16 18:26:23,315 INFO --- Época 38/80 (Mean Teacher) ---
+2025-06-16 18:26:33,600 INFO Época 37: sup=0.7424, cons=0.0140, total=0.7564 | val_loss=0.3633, IoU=0.5089, P=0.7098, R=0.7435, F1=0.6578
+2025-06-16 18:26:33,600 INFO pspnet (MT) Época 38: Val Loss=0.3633, Val IoU=0.5089
+2025-06-16 18:26:33,600 INFO --- Época 39/80 (Mean Teacher) ---
+2025-06-16 18:26:44,008 INFO Época 38: sup=0.7531, cons=0.0122, total=0.7652 | val_loss=0.3649, IoU=0.5066, P=0.7160, R=0.7424, F1=0.6533
+2025-06-16 18:26:44,008 INFO pspnet (MT) Época 39: Val Loss=0.3649, Val IoU=0.5066
+2025-06-16 18:26:44,008 INFO --- Época 40/80 (Mean Teacher) ---
+2025-06-16 18:26:54,158 INFO Época 39: sup=0.7517, cons=0.0126, total=0.7643 | val_loss=0.3735, IoU=0.5005, P=0.7203, R=0.7276, F1=0.6490
+2025-06-16 18:26:54,158 INFO pspnet (MT) Época 40: Val Loss=0.3735, Val IoU=0.5005
+2025-06-16 18:26:54,158 INFO --- Época 41/80 (Mean Teacher) ---
+2025-06-16 18:27:04,404 INFO Época 40: sup=0.7530, cons=0.0108, total=0.7638 | val_loss=0.3672, IoU=0.5034, P=0.7108, R=0.7313, F1=0.6501
+2025-06-16 18:27:04,404 INFO pspnet (MT) Época 41: Val Loss=0.3672, Val IoU=0.5034
+2025-06-16 18:27:04,404 INFO --- Época 42/80 (Mean Teacher) ---
+2025-06-16 18:27:14,580 INFO Época 41: sup=0.7438, cons=0.0113, total=0.7552 | val_loss=0.3638, IoU=0.5082, P=0.7009, R=0.7510, F1=0.6568
+2025-06-16 18:27:14,580 INFO pspnet (MT) Época 42: Val Loss=0.3638, Val IoU=0.5082
+2025-06-16 18:27:14,580 INFO --- Época 43/80 (Mean Teacher) ---
+2025-06-16 18:27:24,766 INFO Época 42: sup=0.7530, cons=0.0119, total=0.7649 | val_loss=0.3882, IoU=0.4843, P=0.7475, R=0.6799, F1=0.6303
+2025-06-16 18:27:24,767 INFO pspnet (MT) Época 43: Val Loss=0.3882, Val IoU=0.4843
+2025-06-16 18:27:24,767 INFO --- Época 44/80 (Mean Teacher) ---
+2025-06-16 18:27:35,117 INFO Época 43: sup=0.7725, cons=0.0121, total=0.7845 | val_loss=0.4033, IoU=0.4637, P=0.7830, R=0.6253, F1=0.6100
+2025-06-16 18:27:35,117 INFO pspnet (MT) Época 44: Val Loss=0.4033, Val IoU=0.4637
+2025-06-16 18:27:35,117 INFO --- Época 45/80 (Mean Teacher) ---
+2025-06-16 18:27:45,406 INFO Época 44: sup=0.7479, cons=0.0068, total=0.7547 | val_loss=0.3667, IoU=0.5061, P=0.6493, R=0.8155, F1=0.6554
+2025-06-16 18:27:45,407 INFO pspnet (MT) Época 45: Val Loss=0.3667, Val IoU=0.5061
+2025-06-16 18:27:45,407 INFO --- Época 46/80 (Mean Teacher) ---
+2025-06-16 18:27:55,689 INFO Época 45: sup=0.7539, cons=0.0130, total=0.7669 | val_loss=0.4054, IoU=0.4617, P=0.7459, R=0.6123, F1=0.6111
+2025-06-16 18:27:55,689 INFO pspnet (MT) Época 46: Val Loss=0.4054, Val IoU=0.4617
+2025-06-16 18:27:55,689 INFO --- Época 47/80 (Mean Teacher) ---
+2025-06-16 18:28:05,953 INFO Época 46: sup=0.7533, cons=0.0087, total=0.7620 | val_loss=0.4070, IoU=0.4665, P=0.7556, R=0.6590, F1=0.6131
+2025-06-16 18:28:05,953 INFO pspnet (MT) Época 47: Val Loss=0.4070, Val IoU=0.4665
+2025-06-16 18:28:05,953 INFO --- Época 48/80 (Mean Teacher) ---
+2025-06-16 18:28:16,083 INFO Época 47: sup=0.7364, cons=0.0076, total=0.7440 | val_loss=0.4182, IoU=0.4501, P=0.7671, R=0.6025, F1=0.5969
+2025-06-16 18:28:16,083 INFO pspnet (MT) Época 48: Val Loss=0.4182, Val IoU=0.4501
+2025-06-16 18:28:16,084 INFO --- Época 49/80 (Mean Teacher) ---
+2025-06-16 18:28:26,375 INFO Época 48: sup=0.7564, cons=0.0070, total=0.7633 | val_loss=0.3982, IoU=0.4751, P=0.7529, R=0.6603, F1=0.6222
+2025-06-16 18:28:26,375 INFO pspnet (MT) Época 49: Val Loss=0.3982, Val IoU=0.4751
+2025-06-16 18:28:26,375 INFO --- Época 50/80 (Mean Teacher) ---
+2025-06-16 18:28:36,626 INFO Época 49: sup=0.7529, cons=0.0114, total=0.7644 | val_loss=0.3949, IoU=0.4776, P=0.7441, R=0.6733, F1=0.6257
+2025-06-16 18:28:36,626 INFO pspnet (MT) Época 50: Val Loss=0.3949, Val IoU=0.4776
+2025-06-16 18:28:36,626 INFO --- Época 51/80 (Mean Teacher) ---
+2025-06-16 18:28:46,888 INFO Época 50: sup=0.7302, cons=0.0079, total=0.7381 | val_loss=0.4013, IoU=0.4717, P=0.7470, R=0.6706, F1=0.6154
+2025-06-16 18:28:46,888 INFO pspnet (MT) Época 51: Val Loss=0.4013, Val IoU=0.4717
+2025-06-16 18:28:46,888 INFO --- Época 52/80 (Mean Teacher) ---
+2025-06-16 18:28:57,136 INFO Época 51: sup=0.7513, cons=0.0112, total=0.7625 | val_loss=0.4520, IoU=0.4139, P=0.7881, R=0.5784, F1=0.5516
+2025-06-16 18:28:57,136 INFO pspnet (MT) Época 52: Val Loss=0.4520, Val IoU=0.4139
+2025-06-16 18:28:57,136 INFO --- Época 53/80 (Mean Teacher) ---
+2025-06-16 18:29:07,392 INFO Época 52: sup=0.7517, cons=0.0075, total=0.7592 | val_loss=0.4177, IoU=0.4500, P=0.7580, R=0.5980, F1=0.5993
+2025-06-16 18:29:07,392 INFO pspnet (MT) Época 53: Val Loss=0.4177, Val IoU=0.4500
+2025-06-16 18:29:07,392 INFO --- Época 54/80 (Mean Teacher) ---
+2025-06-16 18:29:17,582 INFO Época 53: sup=0.7511, cons=0.0101, total=0.7612 | val_loss=0.4262, IoU=0.4381, P=0.7649, R=0.6112, F1=0.5815
+2025-06-16 18:29:17,582 INFO pspnet (MT) Época 54: Val Loss=0.4262, Val IoU=0.4381
+2025-06-16 18:29:17,582 INFO --- Época 55/80 (Mean Teacher) ---
+2025-06-16 18:29:27,811 INFO Época 54: sup=0.7508, cons=0.0095, total=0.7602 | val_loss=0.4273, IoU=0.4427, P=0.7738, R=0.6061, F1=0.5877
+2025-06-16 18:29:27,811 INFO pspnet (MT) Época 55: Val Loss=0.4273, Val IoU=0.4427
+2025-06-16 18:29:27,811 INFO --- Época 56/80 (Mean Teacher) ---
+2025-06-16 18:29:37,975 INFO Época 55: sup=0.7578, cons=0.0066, total=0.7644 | val_loss=0.4199, IoU=0.4539, P=0.7622, R=0.6307, F1=0.5995
+2025-06-16 18:29:37,975 INFO pspnet (MT) Época 56: Val Loss=0.4199, Val IoU=0.4539
+2025-06-16 18:29:37,975 INFO --- Época 57/80 (Mean Teacher) ---
+2025-06-16 18:29:48,275 INFO Época 56: sup=0.7603, cons=0.0088, total=0.7691 | val_loss=0.4096, IoU=0.4562, P=0.7337, R=0.6604, F1=0.6017
+2025-06-16 18:29:48,275 INFO pspnet (MT) Época 57: Val Loss=0.4096, Val IoU=0.4562
+2025-06-16 18:29:48,275 INFO --- Época 58/80 (Mean Teacher) ---
+2025-06-16 18:29:58,534 INFO Época 57: sup=0.7523, cons=0.0086, total=0.7609 | val_loss=0.3819, IoU=0.4922, P=0.7055, R=0.7390, F1=0.6380
+2025-06-16 18:29:58,534 INFO pspnet (MT) Época 58: Val Loss=0.3819, Val IoU=0.4922
+2025-06-16 18:29:58,534 INFO --- Época 59/80 (Mean Teacher) ---
+2025-06-16 18:30:08,741 INFO Época 58: sup=0.7570, cons=0.0109, total=0.7679 | val_loss=0.4180, IoU=0.4514, P=0.7270, R=0.6415, F1=0.5978
+2025-06-16 18:30:08,741 INFO pspnet (MT) Época 59: Val Loss=0.4180, Val IoU=0.4514
+2025-06-16 18:30:08,741 INFO --- Época 60/80 (Mean Teacher) ---
+2025-06-16 18:30:18,874 INFO Época 59: sup=0.7510, cons=0.0088, total=0.7598 | val_loss=0.4184, IoU=0.4546, P=0.7606, R=0.6590, F1=0.5962
+2025-06-16 18:30:18,874 INFO pspnet (MT) Época 60: Val Loss=0.4184, Val IoU=0.4546
+2025-06-16 18:30:18,874 INFO --- Época 61/80 (Mean Teacher) ---
+2025-06-16 18:30:29,113 INFO Época 60: sup=0.7540, cons=0.0081, total=0.7621 | val_loss=0.4321, IoU=0.4310, P=0.7581, R=0.6182, F1=0.5733
+2025-06-16 18:30:29,113 INFO pspnet (MT) Época 61: Val Loss=0.4321, Val IoU=0.4310
+2025-06-16 18:30:29,113 INFO --- Época 62/80 (Mean Teacher) ---
+2025-06-16 18:30:39,222 INFO Época 61: sup=0.7508, cons=0.0091, total=0.7598 | val_loss=0.4029, IoU=0.4689, P=0.7535, R=0.6426, F1=0.6153
+2025-06-16 18:30:39,222 INFO pspnet (MT) Época 62: Val Loss=0.4029, Val IoU=0.4689
+2025-06-16 18:30:39,222 INFO --- Época 63/80 (Mean Teacher) ---
+2025-06-16 18:30:49,400 INFO Época 62: sup=0.7341, cons=0.0091, total=0.7432 | val_loss=0.3980, IoU=0.4748, P=0.6850, R=0.7143, F1=0.6239
+2025-06-16 18:30:49,401 INFO pspnet (MT) Época 63: Val Loss=0.3980, Val IoU=0.4748
+2025-06-16 18:30:49,401 INFO --- Época 64/80 (Mean Teacher) ---
+2025-06-16 18:30:59,505 INFO Época 63: sup=0.7535, cons=0.0090, total=0.7625 | val_loss=0.4008, IoU=0.4705, P=0.7130, R=0.6779, F1=0.6188
+2025-06-16 18:30:59,505 INFO pspnet (MT) Época 64: Val Loss=0.4008, Val IoU=0.4705
+2025-06-16 18:30:59,505 INFO --- Época 65/80 (Mean Teacher) ---
+2025-06-16 18:31:09,647 INFO Época 64: sup=0.7405, cons=0.0100, total=0.7505 | val_loss=0.4062, IoU=0.4709, P=0.7412, R=0.6659, F1=0.6159
+2025-06-16 18:31:09,647 INFO pspnet (MT) Época 65: Val Loss=0.4062, Val IoU=0.4709
+2025-06-16 18:31:09,647 INFO --- Época 66/80 (Mean Teacher) ---
+2025-06-16 18:31:19,785 INFO Época 65: sup=0.7519, cons=0.0076, total=0.7595 | val_loss=0.4394, IoU=0.4257, P=0.7537, R=0.6167, F1=0.5672
+2025-06-16 18:31:19,785 INFO pspnet (MT) Época 66: Val Loss=0.4394, Val IoU=0.4257
+2025-06-16 18:31:19,785 INFO --- Época 67/80 (Mean Teacher) ---
+2025-06-16 18:31:30,002 INFO Época 66: sup=0.7509, cons=0.0087, total=0.7596 | val_loss=0.4060, IoU=0.4620, P=0.7418, R=0.6477, F1=0.6090
+2025-06-16 18:31:30,002 INFO pspnet (MT) Época 67: Val Loss=0.4060, Val IoU=0.4620
+2025-06-16 18:31:30,002 INFO --- Época 68/80 (Mean Teacher) ---
+2025-06-16 18:31:40,413 INFO Época 67: sup=0.7443, cons=0.0108, total=0.7551 | val_loss=0.3976, IoU=0.4697, P=0.6536, R=0.7348, F1=0.6223
+2025-06-16 18:31:40,413 INFO pspnet (MT) Época 68: Val Loss=0.3976, Val IoU=0.4697
+2025-06-16 18:31:40,413 INFO --- Época 69/80 (Mean Teacher) ---
+2025-06-16 18:31:50,664 INFO Época 68: sup=0.7507, cons=0.0081, total=0.7588 | val_loss=0.4143, IoU=0.4542, P=0.7220, R=0.6525, F1=0.6014
+2025-06-16 18:31:50,664 INFO pspnet (MT) Época 69: Val Loss=0.4143, Val IoU=0.4542
+2025-06-16 18:31:50,664 INFO --- Época 70/80 (Mean Teacher) ---
+2025-06-16 18:32:01,045 INFO Época 69: sup=0.7517, cons=0.0093, total=0.7610 | val_loss=0.4021, IoU=0.4678, P=0.6954, R=0.6717, F1=0.6181
+2025-06-16 18:32:01,045 INFO pspnet (MT) Época 70: Val Loss=0.4021, Val IoU=0.4678
+2025-06-16 18:32:01,045 INFO --- Época 71/80 (Mean Teacher) ---
+2025-06-16 18:32:11,503 INFO Época 70: sup=0.7509, cons=0.0061, total=0.7570 | val_loss=0.4349, IoU=0.4364, P=0.7531, R=0.6117, F1=0.5787
+2025-06-16 18:32:11,503 INFO pspnet (MT) Época 71: Val Loss=0.4349, Val IoU=0.4364
+2025-06-16 18:32:11,503 INFO --- Época 72/80 (Mean Teacher) ---
+2025-06-16 18:32:21,966 INFO Época 71: sup=0.7513, cons=0.0093, total=0.7606 | val_loss=0.3946, IoU=0.4766, P=0.7234, R=0.6848, F1=0.6231
+2025-06-16 18:32:21,967 INFO pspnet (MT) Época 72: Val Loss=0.3946, Val IoU=0.4766
+2025-06-16 18:32:21,967 INFO --- Época 73/80 (Mean Teacher) ---
+2025-06-16 18:32:32,213 INFO Época 72: sup=0.7508, cons=0.0073, total=0.7581 | val_loss=0.4583, IoU=0.4114, P=0.7669, R=0.5646, F1=0.5487
+2025-06-16 18:32:32,213 INFO pspnet (MT) Época 73: Val Loss=0.4583, Val IoU=0.4114
+2025-06-16 18:32:32,213 INFO --- Época 74/80 (Mean Teacher) ---
+2025-06-16 18:32:42,602 INFO Época 73: sup=0.7528, cons=0.0072, total=0.7600 | val_loss=0.4594, IoU=0.4127, P=0.7594, R=0.5673, F1=0.5504
+2025-06-16 18:32:42,602 INFO pspnet (MT) Época 74: Val Loss=0.4594, Val IoU=0.4127
+2025-06-16 18:32:42,602 INFO --- Época 75/80 (Mean Teacher) ---
+2025-06-16 18:32:52,881 INFO Época 74: sup=0.6949, cons=0.0089, total=0.7038 | val_loss=0.4222, IoU=0.4470, P=0.7182, R=0.6452, F1=0.5927
+2025-06-16 18:32:52,881 INFO pspnet (MT) Época 75: Val Loss=0.4222, Val IoU=0.4470
+2025-06-16 18:32:52,881 INFO --- Época 76/80 (Mean Teacher) ---
+2025-06-16 18:33:03,006 INFO Época 75: sup=0.7512, cons=0.0094, total=0.7606 | val_loss=0.4266, IoU=0.4447, P=0.7492, R=0.6295, F1=0.5867
+2025-06-16 18:33:03,006 INFO pspnet (MT) Época 76: Val Loss=0.4266, Val IoU=0.4447
+2025-06-16 18:33:03,006 INFO --- Época 77/80 (Mean Teacher) ---
+2025-06-16 18:33:13,152 INFO Época 76: sup=0.7124, cons=0.0083, total=0.7206 | val_loss=0.4587, IoU=0.4133, P=0.7661, R=0.5889, F1=0.5479
+2025-06-16 18:33:13,152 INFO pspnet (MT) Época 77: Val Loss=0.4587, Val IoU=0.4133
+2025-06-16 18:33:13,152 INFO --- Época 78/80 (Mean Teacher) ---
+2025-06-16 18:33:23,423 INFO Época 77: sup=0.7714, cons=0.0090, total=0.7804 | val_loss=0.4552, IoU=0.4168, P=0.7474, R=0.5966, F1=0.5535
+2025-06-16 18:33:23,423 INFO pspnet (MT) Época 78: Val Loss=0.4552, Val IoU=0.4168
+2025-06-16 18:33:23,424 INFO --- Época 79/80 (Mean Teacher) ---
+2025-06-16 18:33:33,752 INFO Época 78: sup=0.7517, cons=0.0085, total=0.7602 | val_loss=0.4365, IoU=0.4342, P=0.7611, R=0.5919, F1=0.5775
+2025-06-16 18:33:33,752 INFO pspnet (MT) Época 79: Val Loss=0.4365, Val IoU=0.4342
+2025-06-16 18:33:33,752 INFO --- Época 80/80 (Mean Teacher) ---
+2025-06-16 18:33:43,999 INFO Época 79: sup=0.7509, cons=0.0089, total=0.7598 | val_loss=0.4698, IoU=0.4024, P=0.7477, R=0.5572, F1=0.5416
+2025-06-16 18:33:43,999 INFO pspnet (MT) Época 80: Val Loss=0.4698, Val IoU=0.4024
+2025-06-16 18:33:44,056 INFO [semi] ✔ Cargado best checkpoint época 37 con IoU_val=0.5225
+2025-06-16 18:33:45,122 INFO pspnet (MT) Test final: Loss=0.3529, IoU=0.5200
+2025-06-16 18:33:45,122 INFO Entrenando arquitectura (Mean Teacher): fpn
+2025-06-16 18:33:47,684 INFO --- Época 1/80 (Mean Teacher) ---
+2025-06-16 18:34:26,310 INFO Época 0: sup=0.7683, cons=0.0176, total=0.7684 | val_loss=0.5778, IoU=0.2914, P=0.3011, R=0.9893, F1=0.4234
+2025-06-16 18:34:26,310 INFO fpn (MT) Época 1: Val Loss=0.5778, Val IoU=0.2914
+2025-06-16 18:34:26,529 INFO [semi] ▶ Nuevo best IoU_val=0.2914 (época 1)
+2025-06-16 18:34:26,529 INFO --- Época 2/80 (Mean Teacher) ---
+2025-06-16 18:34:59,602 INFO Época 1: sup=0.7546, cons=0.0191, total=0.7548 | val_loss=0.4802, IoU=0.3878, P=0.4340, R=0.9397, F1=0.5358
+2025-06-16 18:34:59,602 INFO fpn (MT) Época 2: Val Loss=0.4802, Val IoU=0.3878
+2025-06-16 18:34:59,854 INFO [semi] ▶ Nuevo best IoU_val=0.3878 (época 2)
+2025-06-16 18:34:59,855 INFO --- Época 3/80 (Mean Teacher) ---
+2025-06-16 18:35:32,356 INFO Época 2: sup=0.7624, cons=0.0186, total=0.7627 | val_loss=0.3928, IoU=0.4781, P=0.5803, R=0.8430, F1=0.6291
+2025-06-16 18:35:32,356 INFO fpn (MT) Época 3: Val Loss=0.3928, Val IoU=0.4781
+2025-06-16 18:35:32,607 INFO [semi] ▶ Nuevo best IoU_val=0.4781 (época 3)
+2025-06-16 18:35:32,607 INFO --- Época 4/80 (Mean Teacher) ---
+2025-06-16 18:36:05,301 INFO Época 3: sup=0.7439, cons=0.0194, total=0.7442 | val_loss=0.3703, IoU=0.4996, P=0.6219, R=0.8198, F1=0.6503
+2025-06-16 18:36:05,301 INFO fpn (MT) Época 4: Val Loss=0.3703, Val IoU=0.4996
+2025-06-16 18:36:05,553 INFO [semi] ▶ Nuevo best IoU_val=0.4996 (época 4)
+2025-06-16 18:36:05,554 INFO --- Época 5/80 (Mean Teacher) ---
+2025-06-16 18:36:38,120 INFO Época 4: sup=0.7546, cons=0.0130, total=0.7549 | val_loss=0.3526, IoU=0.5205, P=0.6478, R=0.8321, F1=0.6684
+2025-06-16 18:36:38,120 INFO fpn (MT) Época 5: Val Loss=0.3526, Val IoU=0.5205
+2025-06-16 18:36:38,372 INFO [semi] ▶ Nuevo best IoU_val=0.5205 (época 5)
+2025-06-16 18:36:38,372 INFO --- Época 6/80 (Mean Teacher) ---
+2025-06-16 18:37:10,792 INFO Época 5: sup=0.7815, cons=0.0167, total=0.7820 | val_loss=0.3517, IoU=0.5187, P=0.6517, R=0.8053, F1=0.6690
+2025-06-16 18:37:10,792 INFO fpn (MT) Época 6: Val Loss=0.3517, Val IoU=0.5187
+2025-06-16 18:37:10,792 INFO --- Época 7/80 (Mean Teacher) ---
+2025-06-16 18:37:43,458 INFO Época 6: sup=0.7592, cons=0.0121, total=0.7597 | val_loss=0.3359, IoU=0.5283, P=0.6843, R=0.7844, F1=0.6777
+2025-06-16 18:37:43,458 INFO fpn (MT) Época 7: Val Loss=0.3359, Val IoU=0.5283
+2025-06-16 18:37:43,717 INFO [semi] ▶ Nuevo best IoU_val=0.5283 (época 7)
+2025-06-16 18:37:43,717 INFO --- Época 8/80 (Mean Teacher) ---
+2025-06-16 18:38:16,765 INFO Época 7: sup=0.7387, cons=0.0173, total=0.7396 | val_loss=0.3322, IoU=0.5324, P=0.6926, R=0.7688, F1=0.6820
+2025-06-16 18:38:16,765 INFO fpn (MT) Época 8: Val Loss=0.3322, Val IoU=0.5324
+2025-06-16 18:38:17,019 INFO [semi] ▶ Nuevo best IoU_val=0.5324 (época 8)
+2025-06-16 18:38:17,019 INFO --- Época 9/80 (Mean Teacher) ---
+2025-06-16 18:38:49,884 INFO Época 8: sup=0.7804, cons=0.0167, total=0.7816 | val_loss=0.3285, IoU=0.5389, P=0.7344, R=0.7330, F1=0.6870
+2025-06-16 18:38:49,885 INFO fpn (MT) Época 9: Val Loss=0.3285, Val IoU=0.5389
+2025-06-16 18:38:50,141 INFO [semi] ▶ Nuevo best IoU_val=0.5389 (época 9)
+2025-06-16 18:38:50,141 INFO --- Época 10/80 (Mean Teacher) ---
+2025-06-16 18:39:22,607 INFO Época 9: sup=0.7536, cons=0.0100, total=0.7544 | val_loss=0.3220, IoU=0.5457, P=0.7044, R=0.7903, F1=0.6926
+2025-06-16 18:39:22,607 INFO fpn (MT) Época 10: Val Loss=0.3220, Val IoU=0.5457
+2025-06-16 18:39:22,875 INFO [semi] ▶ Nuevo best IoU_val=0.5457 (época 10)
+2025-06-16 18:39:22,875 INFO --- Época 11/80 (Mean Teacher) ---
+2025-06-16 18:39:56,171 INFO Época 10: sup=0.7543, cons=0.0147, total=0.7559 | val_loss=0.3264, IoU=0.5410, P=0.6789, R=0.8141, F1=0.6890
+2025-06-16 18:39:56,171 INFO fpn (MT) Época 11: Val Loss=0.3264, Val IoU=0.5410
+2025-06-16 18:39:56,171 INFO --- Época 12/80 (Mean Teacher) ---
+2025-06-16 18:40:28,854 INFO Época 11: sup=0.7544, cons=0.0166, total=0.7567 | val_loss=0.3135, IoU=0.5541, P=0.6956, R=0.8038, F1=0.7006
+2025-06-16 18:40:28,854 INFO fpn (MT) Época 12: Val Loss=0.3135, Val IoU=0.5541
+2025-06-16 18:40:29,122 INFO [semi] ▶ Nuevo best IoU_val=0.5541 (época 12)
+2025-06-16 18:40:29,122 INFO --- Época 13/80 (Mean Teacher) ---
+2025-06-16 18:41:01,792 INFO Época 12: sup=0.7463, cons=0.0170, total=0.7491 | val_loss=0.3132, IoU=0.5538, P=0.6944, R=0.8115, F1=0.7003
+2025-06-16 18:41:01,792 INFO fpn (MT) Época 13: Val Loss=0.3132, Val IoU=0.5538
+2025-06-16 18:41:01,792 INFO --- Época 14/80 (Mean Teacher) ---
+2025-06-16 18:41:34,276 INFO Época 13: sup=0.7236, cons=0.0140, total=0.7264 | val_loss=0.3138, IoU=0.5553, P=0.7260, R=0.7773, F1=0.7002
+2025-06-16 18:41:34,277 INFO fpn (MT) Época 14: Val Loss=0.3138, Val IoU=0.5553
+2025-06-16 18:41:34,528 INFO [semi] ▶ Nuevo best IoU_val=0.5553 (época 14)
+2025-06-16 18:41:34,528 INFO --- Época 15/80 (Mean Teacher) ---
+2025-06-16 18:42:07,364 INFO Época 14: sup=0.7525, cons=0.0158, total=0.7563 | val_loss=0.3154, IoU=0.5505, P=0.7322, R=0.7604, F1=0.6972
+2025-06-16 18:42:07,364 INFO fpn (MT) Época 15: Val Loss=0.3154, Val IoU=0.5505
+2025-06-16 18:42:07,364 INFO --- Época 16/80 (Mean Teacher) ---
+2025-06-16 18:42:40,013 INFO Época 15: sup=0.7634, cons=0.0160, total=0.7680 | val_loss=0.3092, IoU=0.5603, P=0.7299, R=0.7706, F1=0.7067
+2025-06-16 18:42:40,013 INFO fpn (MT) Época 16: Val Loss=0.3092, Val IoU=0.5603
+2025-06-16 18:42:40,265 INFO [semi] ▶ Nuevo best IoU_val=0.5603 (época 16)
+2025-06-16 18:42:40,265 INFO --- Época 17/80 (Mean Teacher) ---
+2025-06-16 18:43:12,615 INFO Época 16: sup=0.7425, cons=0.0159, total=0.7478 | val_loss=0.3031, IoU=0.5663, P=0.7328, R=0.7835, F1=0.7106
+2025-06-16 18:43:12,615 INFO fpn (MT) Época 17: Val Loss=0.3031, Val IoU=0.5663
+2025-06-16 18:43:12,866 INFO [semi] ▶ Nuevo best IoU_val=0.5663 (época 17)
+2025-06-16 18:43:12,866 INFO --- Época 18/80 (Mean Teacher) ---
+2025-06-16 18:43:45,469 INFO Época 17: sup=0.7533, cons=0.0111, total=0.7577 | val_loss=0.3004, IoU=0.5690, P=0.7369, R=0.7807, F1=0.7121
+2025-06-16 18:43:45,469 INFO fpn (MT) Época 18: Val Loss=0.3004, Val IoU=0.5690
+2025-06-16 18:43:45,721 INFO [semi] ▶ Nuevo best IoU_val=0.5690 (época 18)
+2025-06-16 18:43:45,721 INFO --- Época 19/80 (Mean Teacher) ---
+2025-06-16 18:44:18,910 INFO Época 18: sup=0.7506, cons=0.0151, total=0.7574 | val_loss=0.3160, IoU=0.5522, P=0.7666, R=0.7335, F1=0.6953
+2025-06-16 18:44:18,910 INFO fpn (MT) Época 19: Val Loss=0.3160, Val IoU=0.5522
+2025-06-16 18:44:18,911 INFO --- Época 20/80 (Mean Teacher) ---
+2025-06-16 18:44:51,768 INFO Época 19: sup=0.7505, cons=0.0137, total=0.7575 | val_loss=0.3106, IoU=0.5565, P=0.7316, R=0.7724, F1=0.7013
+2025-06-16 18:44:51,768 INFO fpn (MT) Época 20: Val Loss=0.3106, Val IoU=0.5565
+2025-06-16 18:44:51,768 INFO --- Época 21/80 (Mean Teacher) ---
+2025-06-16 18:45:24,191 INFO Época 20: sup=0.7127, cons=0.0068, total=0.7166 | val_loss=0.3030, IoU=0.5666, P=0.7562, R=0.7506, F1=0.7099
+2025-06-16 18:45:24,191 INFO fpn (MT) Época 21: Val Loss=0.3030, Val IoU=0.5666
+2025-06-16 18:45:24,191 INFO --- Época 22/80 (Mean Teacher) ---
+2025-06-16 18:45:57,372 INFO Época 21: sup=0.7384, cons=0.0155, total=0.7483 | val_loss=0.3195, IoU=0.5485, P=0.7669, R=0.7059, F1=0.6946
+2025-06-16 18:45:57,373 INFO fpn (MT) Época 22: Val Loss=0.3195, Val IoU=0.5485
+2025-06-16 18:45:57,373 INFO --- Época 23/80 (Mean Teacher) ---
+2025-06-16 18:46:29,986 INFO Época 22: sup=0.7038, cons=0.0149, total=0.7142 | val_loss=0.3221, IoU=0.5445, P=0.7772, R=0.7041, F1=0.6908
+2025-06-16 18:46:29,986 INFO fpn (MT) Época 23: Val Loss=0.3221, Val IoU=0.5445
+2025-06-16 18:46:29,986 INFO --- Época 24/80 (Mean Teacher) ---
+2025-06-16 18:47:02,606 INFO Época 23: sup=0.7501, cons=0.0135, total=0.7604 | val_loss=0.3239, IoU=0.5411, P=0.7607, R=0.7044, F1=0.6886
+2025-06-16 18:47:02,606 INFO fpn (MT) Época 24: Val Loss=0.3239, Val IoU=0.5411
+2025-06-16 18:47:02,606 INFO --- Época 25/80 (Mean Teacher) ---
+2025-06-16 18:47:35,247 INFO Época 24: sup=0.7484, cons=0.0121, total=0.7583 | val_loss=0.3249, IoU=0.5408, P=0.8045, R=0.6734, F1=0.6860
+2025-06-16 18:47:35,248 INFO fpn (MT) Época 25: Val Loss=0.3249, Val IoU=0.5408
+2025-06-16 18:47:35,248 INFO --- Época 26/80 (Mean Teacher) ---
+2025-06-16 18:48:07,926 INFO Época 25: sup=0.7502, cons=0.0134, total=0.7619 | val_loss=0.3315, IoU=0.5363, P=0.8008, R=0.6727, F1=0.6807
+2025-06-16 18:48:07,926 INFO fpn (MT) Época 26: Val Loss=0.3315, Val IoU=0.5363
+2025-06-16 18:48:07,926 INFO --- Época 27/80 (Mean Teacher) ---
+2025-06-16 18:48:40,602 INFO Época 26: sup=0.7517, cons=0.0170, total=0.7672 | val_loss=0.3205, IoU=0.5438, P=0.7950, R=0.6857, F1=0.6878
+2025-06-16 18:48:40,602 INFO fpn (MT) Época 27: Val Loss=0.3205, Val IoU=0.5438
+2025-06-16 18:48:40,602 INFO --- Época 28/80 (Mean Teacher) ---
+2025-06-16 18:49:13,160 INFO Época 27: sup=0.7621, cons=0.0130, total=0.7745 | val_loss=0.3164, IoU=0.5501, P=0.7636, R=0.7400, F1=0.6934
+2025-06-16 18:49:13,161 INFO fpn (MT) Época 28: Val Loss=0.3164, Val IoU=0.5501
+2025-06-16 18:49:13,161 INFO --- Época 29/80 (Mean Teacher) ---
+2025-06-16 18:49:46,054 INFO Época 28: sup=0.7502, cons=0.0133, total=0.7632 | val_loss=0.3319, IoU=0.5357, P=0.7970, R=0.6807, F1=0.6801
+2025-06-16 18:49:46,054 INFO fpn (MT) Época 29: Val Loss=0.3319, Val IoU=0.5357
+2025-06-16 18:49:46,054 INFO --- Época 30/80 (Mean Teacher) ---
+2025-06-16 18:50:18,991 INFO Época 29: sup=0.7233, cons=0.0113, total=0.7346 | val_loss=0.3388, IoU=0.5339, P=0.8052, R=0.6771, F1=0.6780
+2025-06-16 18:50:18,991 INFO fpn (MT) Época 30: Val Loss=0.3388, Val IoU=0.5339
+2025-06-16 18:50:18,991 INFO --- Época 31/80 (Mean Teacher) ---
+2025-06-16 18:50:51,834 INFO Época 30: sup=0.7689, cons=0.0070, total=0.7759 | val_loss=0.3302, IoU=0.5379, P=0.8034, R=0.6602, F1=0.6847
+2025-06-16 18:50:51,834 INFO fpn (MT) Época 31: Val Loss=0.3302, Val IoU=0.5379
+2025-06-16 18:50:51,834 INFO --- Época 32/80 (Mean Teacher) ---
+2025-06-16 18:51:24,178 INFO Época 31: sup=0.7505, cons=0.0079, total=0.7584 | val_loss=0.3523, IoU=0.5119, P=0.8285, R=0.6097, F1=0.6595
+2025-06-16 18:51:24,178 INFO fpn (MT) Época 32: Val Loss=0.3523, Val IoU=0.5119
+2025-06-16 18:51:24,178 INFO --- Época 33/80 (Mean Teacher) ---
+2025-06-16 18:51:57,077 INFO Época 32: sup=0.7512, cons=0.0061, total=0.7574 | val_loss=0.3364, IoU=0.5288, P=0.8159, R=0.6287, F1=0.6765
+2025-06-16 18:51:57,077 INFO fpn (MT) Época 33: Val Loss=0.3364, Val IoU=0.5288
+2025-06-16 18:51:57,077 INFO --- Época 34/80 (Mean Teacher) ---
+2025-06-16 18:52:29,777 INFO Época 33: sup=0.7385, cons=0.0112, total=0.7497 | val_loss=0.3189, IoU=0.5475, P=0.8033, R=0.6776, F1=0.6930
+2025-06-16 18:52:29,777 INFO fpn (MT) Época 34: Val Loss=0.3189, Val IoU=0.5475
+2025-06-16 18:52:29,777 INFO --- Época 35/80 (Mean Teacher) ---
+2025-06-16 18:53:02,477 INFO Época 34: sup=0.7431, cons=0.0129, total=0.7560 | val_loss=0.3467, IoU=0.5191, P=0.8322, R=0.6237, F1=0.6663
+2025-06-16 18:53:02,477 INFO fpn (MT) Época 35: Val Loss=0.3467, Val IoU=0.5191
+2025-06-16 18:53:02,477 INFO --- Época 36/80 (Mean Teacher) ---
+2025-06-16 18:53:35,367 INFO Época 35: sup=0.7496, cons=0.0085, total=0.7581 | val_loss=0.3731, IoU=0.4887, P=0.8513, R=0.5741, F1=0.6369
+2025-06-16 18:53:35,367 INFO fpn (MT) Época 36: Val Loss=0.3731, Val IoU=0.4887
+2025-06-16 18:53:35,367 INFO --- Época 37/80 (Mean Teacher) ---
+2025-06-16 18:54:08,139 INFO Época 36: sup=0.7491, cons=0.0136, total=0.7626 | val_loss=0.3565, IoU=0.5107, P=0.8555, R=0.6080, F1=0.6571
+2025-06-16 18:54:08,139 INFO fpn (MT) Época 37: Val Loss=0.3565, Val IoU=0.5107
+2025-06-16 18:54:08,139 INFO --- Época 38/80 (Mean Teacher) ---
+2025-06-16 18:54:40,827 INFO Época 37: sup=0.7843, cons=0.0114, total=0.7957 | val_loss=0.3425, IoU=0.5235, P=0.8219, R=0.6400, F1=0.6698
+2025-06-16 18:54:40,828 INFO fpn (MT) Época 38: Val Loss=0.3425, Val IoU=0.5235
+2025-06-16 18:54:40,828 INFO --- Época 39/80 (Mean Teacher) ---
+2025-06-16 18:55:13,464 INFO Época 38: sup=0.7494, cons=0.0117, total=0.7611 | val_loss=0.3358, IoU=0.5326, P=0.8118, R=0.6781, F1=0.6757
+2025-06-16 18:55:13,464 INFO fpn (MT) Época 39: Val Loss=0.3358, Val IoU=0.5326
+2025-06-16 18:55:13,464 INFO --- Época 40/80 (Mean Teacher) ---
+2025-06-16 18:55:46,255 INFO Época 39: sup=0.7738, cons=0.0061, total=0.7799 | val_loss=0.3499, IoU=0.5232, P=0.8372, R=0.6360, F1=0.6670
+2025-06-16 18:55:46,255 INFO fpn (MT) Época 40: Val Loss=0.3499, Val IoU=0.5232
+2025-06-16 18:55:46,255 INFO --- Época 41/80 (Mean Teacher) ---
+2025-06-16 18:56:19,581 INFO Época 40: sup=0.7513, cons=0.0116, total=0.7629 | val_loss=0.3977, IoU=0.4667, P=0.8578, R=0.5460, F1=0.6137
+2025-06-16 18:56:19,581 INFO fpn (MT) Época 41: Val Loss=0.3977, Val IoU=0.4667
+2025-06-16 18:56:19,581 INFO --- Época 42/80 (Mean Teacher) ---
+2025-06-16 18:56:52,616 INFO Época 41: sup=0.7520, cons=0.0111, total=0.7630 | val_loss=0.3418, IoU=0.5323, P=0.8163, R=0.6591, F1=0.6763
+2025-06-16 18:56:52,616 INFO fpn (MT) Época 42: Val Loss=0.3418, Val IoU=0.5323
+2025-06-16 18:56:52,616 INFO --- Época 43/80 (Mean Teacher) ---
+2025-06-16 18:57:25,087 INFO Época 42: sup=0.7499, cons=0.0124, total=0.7623 | val_loss=0.3682, IoU=0.4972, P=0.8493, R=0.5975, F1=0.6425
+2025-06-16 18:57:25,087 INFO fpn (MT) Época 43: Val Loss=0.3682, Val IoU=0.4972
+2025-06-16 18:57:25,087 INFO --- Época 44/80 (Mean Teacher) ---
+2025-06-16 18:57:58,376 INFO Época 43: sup=0.7558, cons=0.0106, total=0.7664 | val_loss=0.3327, IoU=0.5390, P=0.8146, R=0.6704, F1=0.6818
+2025-06-16 18:57:58,376 INFO fpn (MT) Época 44: Val Loss=0.3327, Val IoU=0.5390
+2025-06-16 18:57:58,376 INFO --- Época 45/80 (Mean Teacher) ---
+2025-06-16 18:58:31,172 INFO Época 44: sup=0.7489, cons=0.0118, total=0.7606 | val_loss=0.3254, IoU=0.5514, P=0.8123, R=0.6733, F1=0.6957
+2025-06-16 18:58:31,172 INFO fpn (MT) Época 45: Val Loss=0.3254, Val IoU=0.5514
+2025-06-16 18:58:31,172 INFO --- Época 46/80 (Mean Teacher) ---
+2025-06-16 18:59:04,041 INFO Época 45: sup=0.7494, cons=0.0050, total=0.7544 | val_loss=0.3506, IoU=0.5172, P=0.8306, R=0.6128, F1=0.6647
+2025-06-16 18:59:04,041 INFO fpn (MT) Época 46: Val Loss=0.3506, Val IoU=0.5172
+2025-06-16 18:59:04,041 INFO --- Época 47/80 (Mean Teacher) ---
+2025-06-16 18:59:36,512 INFO Época 46: sup=0.7752, cons=0.0074, total=0.7826 | val_loss=0.3551, IoU=0.5088, P=0.8354, R=0.6096, F1=0.6544
+2025-06-16 18:59:36,512 INFO fpn (MT) Época 47: Val Loss=0.3551, Val IoU=0.5088
+2025-06-16 18:59:36,512 INFO --- Época 48/80 (Mean Teacher) ---
+2025-06-16 19:00:09,164 INFO Época 47: sup=0.7495, cons=0.0093, total=0.7588 | val_loss=0.3886, IoU=0.4759, P=0.8497, R=0.5636, F1=0.6225
+2025-06-16 19:00:09,164 INFO fpn (MT) Época 48: Val Loss=0.3886, Val IoU=0.4759
+2025-06-16 19:00:09,164 INFO --- Época 49/80 (Mean Teacher) ---
+2025-06-16 19:00:41,787 INFO Época 48: sup=0.7321, cons=0.0060, total=0.7381 | val_loss=0.3597, IoU=0.5126, P=0.8372, R=0.6157, F1=0.6570
+2025-06-16 19:00:41,787 INFO fpn (MT) Época 49: Val Loss=0.3597, Val IoU=0.5126
+2025-06-16 19:00:41,787 INFO --- Época 50/80 (Mean Teacher) ---
+2025-06-16 19:01:14,463 INFO Época 49: sup=0.7506, cons=0.0064, total=0.7570 | val_loss=0.3720, IoU=0.4996, P=0.8391, R=0.5871, F1=0.6459
+2025-06-16 19:01:14,463 INFO fpn (MT) Época 50: Val Loss=0.3720, Val IoU=0.4996
+2025-06-16 19:01:14,463 INFO --- Época 51/80 (Mean Teacher) ---
+2025-06-16 19:01:47,199 INFO Época 50: sup=0.7491, cons=0.0103, total=0.7594 | val_loss=0.4089, IoU=0.4613, P=0.8631, R=0.5400, F1=0.6078
+2025-06-16 19:01:47,199 INFO fpn (MT) Época 51: Val Loss=0.4089, Val IoU=0.4613
+2025-06-16 19:01:47,199 INFO --- Época 52/80 (Mean Teacher) ---
+2025-06-16 19:02:20,449 INFO Época 51: sup=0.7494, cons=0.0100, total=0.7594 | val_loss=0.4241, IoU=0.4426, P=0.8629, R=0.5182, F1=0.5856
+2025-06-16 19:02:20,449 INFO fpn (MT) Época 52: Val Loss=0.4241, Val IoU=0.4426
+2025-06-16 19:02:20,449 INFO --- Época 53/80 (Mean Teacher) ---
+2025-06-16 19:02:53,539 INFO Época 52: sup=0.7494, cons=0.0084, total=0.7578 | val_loss=0.4000, IoU=0.4734, P=0.8608, R=0.5463, F1=0.6190
+2025-06-16 19:02:53,539 INFO fpn (MT) Época 53: Val Loss=0.4000, Val IoU=0.4734
+2025-06-16 19:02:53,539 INFO --- Época 54/80 (Mean Teacher) ---
+2025-06-16 19:03:26,212 INFO Época 53: sup=0.7468, cons=0.0056, total=0.7524 | val_loss=0.4580, IoU=0.4065, P=0.8778, R=0.4692, F1=0.5482
+2025-06-16 19:03:26,212 INFO fpn (MT) Época 54: Val Loss=0.4580, Val IoU=0.4065
+2025-06-16 19:03:26,212 INFO --- Época 55/80 (Mean Teacher) ---
+2025-06-16 19:03:59,307 INFO Época 54: sup=0.7612, cons=0.0084, total=0.7696 | val_loss=0.4218, IoU=0.4510, P=0.8589, R=0.5460, F1=0.5938
+2025-06-16 19:03:59,307 INFO fpn (MT) Época 55: Val Loss=0.4218, Val IoU=0.4510
+2025-06-16 19:03:59,307 INFO --- Época 56/80 (Mean Teacher) ---
+2025-06-16 19:04:32,258 INFO Época 55: sup=0.7332, cons=0.0057, total=0.7390 | val_loss=0.4785, IoU=0.3847, P=0.8891, R=0.4318, F1=0.5263
+2025-06-16 19:04:32,258 INFO fpn (MT) Época 56: Val Loss=0.4785, Val IoU=0.3847
+2025-06-16 19:04:32,258 INFO --- Época 57/80 (Mean Teacher) ---
+2025-06-16 19:05:05,244 INFO Época 56: sup=0.7411, cons=0.0063, total=0.7474 | val_loss=0.4646, IoU=0.4030, P=0.8641, R=0.4741, F1=0.5459
+2025-06-16 19:05:05,244 INFO fpn (MT) Época 57: Val Loss=0.4646, Val IoU=0.4030
+2025-06-16 19:05:05,244 INFO --- Época 58/80 (Mean Teacher) ---
+2025-06-16 19:05:38,201 INFO Época 57: sup=0.7501, cons=0.0105, total=0.7607 | val_loss=0.4285, IoU=0.4499, P=0.8664, R=0.5288, F1=0.5944
+2025-06-16 19:05:38,201 INFO fpn (MT) Época 58: Val Loss=0.4285, Val IoU=0.4499
+2025-06-16 19:05:38,201 INFO --- Época 59/80 (Mean Teacher) ---
+2025-06-16 19:06:11,162 INFO Época 58: sup=0.7489, cons=0.0085, total=0.7574 | val_loss=0.4496, IoU=0.4274, P=0.8650, R=0.4891, F1=0.5737
+2025-06-16 19:06:11,162 INFO fpn (MT) Época 59: Val Loss=0.4496, Val IoU=0.4274
+2025-06-16 19:06:11,162 INFO --- Época 60/80 (Mean Teacher) ---
+2025-06-16 19:06:44,029 INFO Época 59: sup=0.7510, cons=0.0072, total=0.7582 | val_loss=0.5579, IoU=0.3040, P=0.8975, R=0.3481, F1=0.4323
+2025-06-16 19:06:44,030 INFO fpn (MT) Época 60: Val Loss=0.5579, Val IoU=0.3040
+2025-06-16 19:06:44,030 INFO --- Época 61/80 (Mean Teacher) ---
+2025-06-16 19:07:16,879 INFO Época 60: sup=0.7510, cons=0.0052, total=0.7562 | val_loss=0.4847, IoU=0.3951, P=0.8756, R=0.4504, F1=0.5370
+2025-06-16 19:07:16,879 INFO fpn (MT) Época 61: Val Loss=0.4847, Val IoU=0.3951
+2025-06-16 19:07:16,879 INFO --- Época 62/80 (Mean Teacher) ---
+2025-06-16 19:07:49,941 INFO Época 61: sup=0.7502, cons=0.0071, total=0.7572 | val_loss=0.5106, IoU=0.3566, P=0.8883, R=0.3905, F1=0.4964
+2025-06-16 19:07:49,941 INFO fpn (MT) Época 62: Val Loss=0.5106, Val IoU=0.3566
+2025-06-16 19:07:49,941 INFO --- Época 63/80 (Mean Teacher) ---
+2025-06-16 19:08:23,583 INFO Época 62: sup=0.7495, cons=0.0067, total=0.7562 | val_loss=0.4829, IoU=0.3975, P=0.8757, R=0.4444, F1=0.5422
+2025-06-16 19:08:23,583 INFO fpn (MT) Época 63: Val Loss=0.4829, Val IoU=0.3975
+2025-06-16 19:08:23,583 INFO --- Época 64/80 (Mean Teacher) ---
+2025-06-16 19:08:56,831 INFO Época 63: sup=0.7661, cons=0.0070, total=0.7730 | val_loss=0.4835, IoU=0.3878, P=0.8853, R=0.4310, F1=0.5317
+2025-06-16 19:08:56,831 INFO fpn (MT) Época 64: Val Loss=0.4835, Val IoU=0.3878
+2025-06-16 19:08:56,831 INFO --- Época 65/80 (Mean Teacher) ---
+2025-06-16 19:09:29,756 INFO Época 64: sup=0.7478, cons=0.0107, total=0.7585 | val_loss=0.5106, IoU=0.3568, P=0.8842, R=0.3919, F1=0.4960
+2025-06-16 19:09:29,756 INFO fpn (MT) Época 65: Val Loss=0.5106, Val IoU=0.3568
+2025-06-16 19:09:29,756 INFO --- Época 66/80 (Mean Teacher) ---
+2025-06-16 19:10:03,063 INFO Época 65: sup=0.7490, cons=0.0057, total=0.7547 | val_loss=0.5538, IoU=0.3080, P=0.8880, R=0.3320, F1=0.4368
+2025-06-16 19:10:03,063 INFO fpn (MT) Época 66: Val Loss=0.5538, Val IoU=0.3080
+2025-06-16 19:10:03,063 INFO --- Época 67/80 (Mean Teacher) ---
+2025-06-16 19:10:36,235 INFO Época 66: sup=0.6809, cons=0.0051, total=0.6860 | val_loss=0.5846, IoU=0.2435, P=0.8739, R=0.2437, F1=0.3625
+2025-06-16 19:10:36,235 INFO fpn (MT) Época 67: Val Loss=0.5846, Val IoU=0.2435
+2025-06-16 19:10:36,235 INFO --- Época 68/80 (Mean Teacher) ---
+2025-06-16 19:11:09,330 INFO Época 67: sup=0.7524, cons=0.0051, total=0.7575 | val_loss=0.5564, IoU=0.3054, P=0.9009, R=0.3414, F1=0.4343
+2025-06-16 19:11:09,330 INFO fpn (MT) Época 68: Val Loss=0.5564, Val IoU=0.3054
+2025-06-16 19:11:09,330 INFO --- Época 69/80 (Mean Teacher) ---
+2025-06-16 19:11:42,334 INFO Época 68: sup=0.7510, cons=0.0053, total=0.7563 | val_loss=0.5882, IoU=0.2528, P=0.9056, R=0.2739, F1=0.3693
+2025-06-16 19:11:42,334 INFO fpn (MT) Época 69: Val Loss=0.5882, Val IoU=0.2528
+2025-06-16 19:11:42,334 INFO --- Época 70/80 (Mean Teacher) ---
+2025-06-16 19:12:15,342 INFO Época 69: sup=0.7541, cons=0.0048, total=0.7589 | val_loss=0.6300, IoU=0.2011, P=0.9088, R=0.2149, F1=0.3027
+2025-06-16 19:12:15,342 INFO fpn (MT) Época 70: Val Loss=0.6300, Val IoU=0.2011
+2025-06-16 19:12:15,342 INFO --- Época 71/80 (Mean Teacher) ---
+2025-06-16 19:12:48,461 INFO Época 70: sup=0.8134, cons=0.0059, total=0.8193 | val_loss=0.6286, IoU=0.1905, P=0.8892, R=0.1841, F1=0.2892
+2025-06-16 19:12:48,461 INFO fpn (MT) Época 71: Val Loss=0.6286, Val IoU=0.1905
+2025-06-16 19:12:48,461 INFO --- Época 72/80 (Mean Teacher) ---
+2025-06-16 19:13:21,524 INFO Época 71: sup=0.7504, cons=0.0049, total=0.7553 | val_loss=0.6355, IoU=0.1873, P=0.9085, R=0.1916, F1=0.2881
+2025-06-16 19:13:21,524 INFO fpn (MT) Época 72: Val Loss=0.6355, Val IoU=0.1873
+2025-06-16 19:13:21,524 INFO --- Época 73/80 (Mean Teacher) ---
+2025-06-16 19:13:54,743 INFO Época 72: sup=0.7496, cons=0.0065, total=0.7561 | val_loss=0.5500, IoU=0.3096, P=0.9011, R=0.3499, F1=0.4375
+2025-06-16 19:13:54,743 INFO fpn (MT) Época 73: Val Loss=0.5500, Val IoU=0.3096
+2025-06-16 19:13:54,743 INFO --- Época 74/80 (Mean Teacher) ---
+2025-06-16 19:14:28,617 INFO Época 73: sup=0.7510, cons=0.0046, total=0.7556 | val_loss=0.5928, IoU=0.2554, P=0.9034, R=0.2809, F1=0.3725
+2025-06-16 19:14:28,617 INFO fpn (MT) Época 74: Val Loss=0.5928, Val IoU=0.2554
+2025-06-16 19:14:28,617 INFO --- Época 75/80 (Mean Teacher) ---
+2025-06-16 19:15:02,063 INFO Época 74: sup=0.7243, cons=0.0072, total=0.7315 | val_loss=0.6082, IoU=0.2325, P=0.8862, R=0.2437, F1=0.3435
+2025-06-16 19:15:02,063 INFO fpn (MT) Época 75: Val Loss=0.6082, Val IoU=0.2325
+2025-06-16 19:15:02,063 INFO --- Época 76/80 (Mean Teacher) ---
+2025-06-16 19:15:35,261 INFO Época 75: sup=0.7493, cons=0.0045, total=0.7537 | val_loss=0.6276, IoU=0.1943, P=0.9083, R=0.2063, F1=0.2924
+2025-06-16 19:15:35,261 INFO fpn (MT) Época 76: Val Loss=0.6276, Val IoU=0.1943
+2025-06-16 19:15:35,261 INFO --- Época 77/80 (Mean Teacher) ---
+2025-06-16 19:16:08,599 INFO Época 76: sup=0.7498, cons=0.0044, total=0.7542 | val_loss=0.6490, IoU=0.1706, P=0.9094, R=0.1790, F1=0.2637
+2025-06-16 19:16:08,599 INFO fpn (MT) Época 77: Val Loss=0.6490, Val IoU=0.1706
+2025-06-16 19:16:08,599 INFO --- Época 78/80 (Mean Teacher) ---
+2025-06-16 19:16:41,773 INFO Época 77: sup=0.7568, cons=0.0046, total=0.7614 | val_loss=0.5908, IoU=0.2699, P=0.9278, R=0.3118, F1=0.3840
+2025-06-16 19:16:41,773 INFO fpn (MT) Época 78: Val Loss=0.5908, Val IoU=0.2699
+2025-06-16 19:16:41,773 INFO --- Época 79/80 (Mean Teacher) ---
+2025-06-16 19:17:14,900 INFO Época 78: sup=0.7835, cons=0.0043, total=0.7879 | val_loss=0.6055, IoU=0.2339, P=0.8971, R=0.2540, F1=0.3393
+2025-06-16 19:17:14,900 INFO fpn (MT) Época 79: Val Loss=0.6055, Val IoU=0.2339
+2025-06-16 19:17:14,900 INFO --- Época 80/80 (Mean Teacher) ---
+2025-06-16 19:17:48,010 INFO Época 79: sup=0.7694, cons=0.0044, total=0.7738 | val_loss=0.6550, IoU=0.1459, P=0.9146, R=0.1408, F1=0.2277
+2025-06-16 19:17:48,010 INFO fpn (MT) Época 80: Val Loss=0.6550, Val IoU=0.1459
+2025-06-16 19:17:48,179 INFO [semi] ✔ Cargado best checkpoint época 18 con IoU_val=0.5690
+2025-06-16 19:17:51,118 INFO fpn (MT) Test final: Loss=0.2975, IoU=0.5711
+¡Entrenamiento completado!

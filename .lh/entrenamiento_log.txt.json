@@ -1,0 +1,18 @@
+{
+    "sourceFile": "entrenamiento_log.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750040804217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750040804217,
+            "name": "Commit-0",
+            "content": "2025-06-15 21:26:24,243 INFO Entrenando arquitectura (Mean Teacher): baseline\r\n2025-06-15 21:26:26,704 INFO --- Época 1/80 (Mean Teacher) ---\r\nTraceback (most recent call last):\r\n  File \"main_semisup_sebas_enhancers.py\", line 586, in <module>\r\n    pert = tf.cond(\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\util\\dispatch.py\", line 201, in wrapper\r\n    return target(*args, **kwargs)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\ops\\control_flow_ops.py\", line 1396, in cond_for_tf_v2\r\n    return cond(pred, true_fn=true_fn, false_fn=false_fn, strict=True, name=name)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\util\\dispatch.py\", line 201, in wrapper\r\n    return target(*args, **kwargs)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\util\\deprecation.py\", line 538, in new_func\r\n    return func(*args, **kwargs)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\ops\\control_flow_ops.py\", line 1208, in cond\r\n    result = true_fn()\r\n  File \"main_semisup_sebas_enhancers.py\", line 588, in <lambda>\r\n    lambda: tf.nn.dilation2d(mask_conf, kernel,\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\util\\dispatch.py\", line 201, in wrapper\r\n    return target(*args, **kwargs)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\ops\\nn_ops.py\", line 386, in dilation2d_v2\r\n    return gen_nn_ops.dilation2d(input=input,\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\ops\\gen_nn_ops.py\", line 2644, in dilation2d\r\n    _ops.raise_from_not_ok_status(e, name)\r\n  File \"C:\\Users\\User\\.conda\\envs\\tesis_tf38\\lib\\site-packages\\tensorflow\\python\\framework\\ops.py\", line 6862, in raise_from_not_ok_status\r\n    six.raise_from(core._status_to_exception(e.code, message), None)\r\n  File \"<string>\", line 3, in raise_from\r\ntensorflow.python.framework.errors_impl.InvalidArgumentError: filter must be 3-dimensional: [43,43,1,1] [Op:Dilation2D]\r\n"
+        }
+    ]
+}
