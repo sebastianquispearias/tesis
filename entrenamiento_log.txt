@@ -1,0 +1,11 @@
+2025-06-21 18:17:06,131 INFO Entrenando arquitectura (Mean Teacher): deeplabv3+
+Traceback (most recent call last):
+  File "main_semisup_tesis.py", line 514, in <module>
+    student = build_model(arch, BACKBONE, n_classes, activation, LR,
+  File "C:\Users\User\Desktop\tesis\models.py", line 18, in build_model
+    base = DeepLabV3Plus(
+  File "C:\Users\User\Desktop\tesis\deeplabv3p\model.py", line 312, in Deeplabv3
+    x = _inverted_res_block(x, filters=16, alpha=alpha, stride=1,
+  File "C:\Users\User\Desktop\tesis\deeplabv3p\model.py", line 167, in _inverted_res_block
+    in_channels = inputs.shape[-1].value  # inputs._keras_shape[-1]
+AttributeError: 'int' object has no attribute 'value'

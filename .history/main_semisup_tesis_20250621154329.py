@@ -7,6 +7,8 @@ y semi-supervisado (Cxx, Mean Teacher)
 Uso:
   python main_final_ultimoPCnuevosemisuperv.py --mode supervised --regime B25
   python main_final_ultimoPCnuevosemisuperv.py --mode semi       --regime C25
+  python main_semisup_gtestaug.py --mode semi --regime C75
+
 """
 
 import os
@@ -18,10 +20,17 @@ import logging
 import random
 import numpy as np
 import tensorflow as tf
+# Evita que TF reserve toda la memoria GPU de golpe
+gpus = tf.config.list_physical_devices('GPU')
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
 import cv2
+import csv
+from metrics_utils import evaluate_and_log
 
 from pathlib import Path
 from tensorflow import keras
+from tensorflow.keras import backend as K
 import segmentation_models as sm    
 from sklearn.model_selection import train_test_split
 
@@ -29,6 +38,33 @@ from callbacks_monitor import ProgressMonitor
 from models import build_model
 
 import albumentations as A
+
+def get_strong_augmentation(input_shape):
+    """Transformaciones fuertes para el ESTUDIANTE."""
+    return A.Compose([
+        # 1) Redimensionar
+        A.Resize(*INPUT_SHAPE[:2]),
+        # 2) Geométricas
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+        A.Transpose(p=0.5),
+        A.GridDistortion(num_steps=5, distort_limit=0.3, p=0.5),
+        # 3) Fotométricas
+        A.RandomBrightnessContrast(p=0.5),
+        # 4) Enmascarado
+        A.CoarseDropout(max_holes=8, max_height=32, max_width=32, p=0.5),
+    ])
+
+def get_weak_augmentation(input_shape):
+    """Transformaciones débiles para el PROFESOR."""
+    return A.Compose([
+        A.Resize(*INPUT_SHAPE[:2]),
+        A.HorizontalFlip(p=0.2),            # flip suave :contentReference[oaicite:0]{index=0}
+        A.RandomBrightnessContrast(p=0.1),
+    ])
+
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 0) OPCIONES DE TF y SEEDING
@@ -60,7 +96,7 @@ logging.basicConfig(
 # B) PARÁMETROS GLOBALES
 # ──────────────────────────────────────────────────────────────────────────────
 BACKBONE    = 'efficientnetb3'
-BATCH_SIZE  = 4
+BATCH_SIZE  = 2
 CLASSES     = ['corrosion']
 LR          = 1e-4
 EPOCHS      = 80
@@ -68,13 +104,16 @@ INPUT_SHAPE = (384, 384, 3)
 n_classes   = 1 if len(CLASSES) == 1 else (len(CLASSES) + 1)
 activation  = 'sigmoid' if n_classes == 1 else 'softmax'
 
-ARCHITECTURES = ['baseline', 'pspnet', 'fpn']  # usado en modo supervisado
+ARCHITECTURES = ['deeplabv3+']  # usado en modo supervisado 'baseline', 'pspnet', 'fpn'
 
 # Parámetros Mean Teacher
 EMA_ALPHA        = 0.99
 CONS_MAX         = 1.0
-CONS_RAMPUP      = 20
+CONS_RAMPUP      = 30
 UNLABELED_WEIGHT = 1.0
+
+### --- AÑADIDO PARA TU PROPUESTA ---
+MORPH_WEIGHT = 0.15 # Peso para tu loss morfológica
 
 # ──────────────────────────────────────────────────────────────────────────────
 # C) AUGMENTATIONS Y PREPROCESSING
@@ -83,17 +122,23 @@ preprocess_input = sm.get_preprocessing(BACKBONE)
 
 def get_training_augmentation():
     return A.Compose([
+    # 1) Redimensionar
         A.Resize(*INPUT_SHAPE[:2]),
+        # 2) Geométricas
         A.HorizontalFlip(p=0.5),
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
         A.Transpose(p=0.5),
         A.GridDistortion(num_steps=5, distort_limit=0.3, p=0.5),
+        # 3) Fotométricas
+        A.RandomBrightnessContrast(p=0.5),
+        # 4) Enmascarado
+        A.CoarseDropout(max_holes=8, max_height=32, max_width=32, p=0.5),
     ])
 
 def get_validation_augmentation():
     return A.Compose([
-        A.Resize(*INPUT_SHAPE[:2]),
+        A.Resize(*INPUT_SHAPE[:2]), 
     ])
 
 def get_preprocessing(preprocessing_fn):
@@ -166,6 +211,8 @@ class Dataloder(keras.utils.Sequence):
 # ──────────────────────────────────────────────────────────────────────────────
 # E) MIXED DATALOADER para Mean Teacher (etiquetados + no-etiquetados)
 # ──────────────────────────────────────────────────────────────────────────────
+
+
 class MixedDataLoader(keras.utils.Sequence):
     """
     Retorna en cada paso: x_lab_batch, y_lab_batch, x_unl_batch.
@@ -249,7 +296,7 @@ class MixedDataLoader(keras.utils.Sequence):
         unl_batch_files = self.unl_images[start_unl:end_unl]
 
         x_unl_student, x_unl_teacher = [], []
-
+        
         for fname in unl_batch_files:
             img = cv2.cvtColor(
                 cv2.imread(os.path.join(self.x_unlab_dir, fname)),
@@ -297,6 +344,7 @@ def parse_args():
         required=True,
         help="Régimen de datos (carpeta dentro de data/all_results/regimes)."
     )
+
     return p.parse_args()
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -329,8 +377,12 @@ if __name__ == '__main__':
     x_test_dir        = os.path.join(DATA_DIR, 'test',  'images')
     y_test_dir        = os.path.join(DATA_DIR, 'test',  'masks')
 
+    best_iou   = 0.0
+    best_epoch = 0
+
     # ───── LÓGICA “SUPERVISED” (A-Full y Bxx) ─────
     if mode == "supervised":
+
         # Crear datasets y loaders para labeled-only
         train_ds = Dataset(
             x_train_lab_dir, y_train_lab_dir, classes=CLASSES,
@@ -358,18 +410,33 @@ if __name__ == '__main__':
             logging.info(f"Entrenando arquitectura (supervised): {arch}")
             tf.keras.backend.clear_session()
 
-            model = build_model(arch, BACKBONE, n_classes, activation, LR,
-                                input_shape=INPUT_SHAPE)
+            # Construye el modelo, congelando encoder para B-regimes
+            freeze_enc = regime.startswith("B")   # True si es B10/B25/B50/B75
+            model = build_model(
+                arch, BACKBONE, n_classes, activation, LR,
+                input_shape=INPUT_SHAPE,
+                freeze_encoder=freeze_enc
+            )
             model.summary()
+            # ——— LOGGING EXPLÍCITO DE FREEZE ENCODER ———
+            # Imprime el flag
+            logging.info(f"freeze_encoder={freeze_enc}")
+            # Cuenta parámetros
+            trainable_count     = int(np.sum([K.count_params(w) for w in model.trainable_weights]))
+            non_trainable_count = int(np.sum([K.count_params(w) for w in model.non_trainable_weights]))
+            logging.info(f"Trainable params: {trainable_count:,} | Non-trainable params: {non_trainable_count:,}")
+            # ————————————————————————————————————————
 
             # Callbacks: checkpoint y reduce_lr + progress monitor
             MODEL_DIR = os.path.join(os.getcwd(), f"models_supervised_{arch}")
             os.makedirs(MODEL_DIR, exist_ok=True)
+            history_path = os.path.join(MODEL_DIR, f"{arch}_MT_history_{regime}.csv")
+            best_path = os.path.join(MODEL_DIR, f"{arch}_best_supervised.weights.h5")
 
             cp = keras.callbacks.ModelCheckpoint(
-                filepath=os.path.join(MODEL_DIR, f"{arch}.weights.h5"),
-                save_weights_only=True,
-                save_best_only=False,
+                filepath=best_path,
+                save_weights_only=False,
+                save_best_only=True,
                 save_freq='epoch',
                 verbose=1,
                 monitor='val_loss',
@@ -391,11 +458,8 @@ if __name__ == '__main__':
             )
 
             # Cargar pesos antes de evaluar test
-            weight_path = os.path.join(MODEL_DIR, f"{arch}.weights.h5")
-            if os.path.exists(weight_path):
-                model.load_weights(weight_path)
-            else:
-                raise FileNotFoundError(f"Pesos no encontrados: {weight_path}")
+            model.load_weights(best_path)
+
 
             # Evaluar
             val_metrics  = model.evaluate(valid_loader, verbose=0)
@@ -410,6 +474,11 @@ if __name__ == '__main__':
     # ───── LÓGICA “SEMI” (Mean Teacher para Cxx) ─────
     elif mode == "semi":
         # MixedDataLoader para train (labeled + unlabeled)
+        # Definir las augmentaciones aquí (antes de usar el DataLoader)
+        strong_aug = get_strong_augmentation(INPUT_SHAPE)
+        weak_aug   = get_weak_augmentation(INPUT_SHAPE)
+
+        # Crear el DataLoader con la augmentación diferente para el estudiante y el profesor
         train_mixed_loader = MixedDataLoader(
             x_lab_dir=x_train_lab_dir,
             y_lab_dir=y_train_lab_dir,
@@ -449,64 +518,112 @@ if __name__ == '__main__':
             teacher.set_weights(student.get_weights())
             teacher.trainable = False
 
-            optimizer = keras.optimizers.Adam(LR)
+            optimizer      = tf.keras.optimizers.Adam(learning_rate=LR)
+
+
             dice_loss = sm.losses.DiceLoss()
             mse_loss  = tf.keras.losses.MeanSquaredError()
 
-            MODEL_DIR = os.path.join(os.getcwd(), f"models_MT_{arch}")
+            MODEL_DIR = os.path.join(os.getcwd(), f"models_MT_semisup_{arch}")
             os.makedirs(MODEL_DIR, exist_ok=True)
-            # Training loop manual
-            for epoch in range(EPOCHS):
-                logging.info(f"--- Época {epoch+1}/{EPOCHS} (Mean Teacher) ---")
-                cons_w = get_consistency_weight(epoch)
+            history_path = os.path.join(MODEL_DIR, f"{arch}_MT_history_{regime}.csv")
+            best_iou   = 0.0
+            best_epoch = 0
+            best_path  = os.path.join(MODEL_DIR, f"{arch}_best_student.weights.h5")
 
-                for x_lab, y_lab, x_unl in train_mixed_loader:
-                    # Teacher predice en x_unl sin gradiente
-                    t_preds = teacher(x_unl, training=False)
-                    t_probs = tf.sigmoid(t_preds)
+            with open(history_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                # Training loop manual
 
-                    with tf.GradientTape() as tape:
-                        # Student en labeled
-                        s_lab_preds = student(x_lab, training=True)
-                        s_lab_probs = tf.sigmoid(s_lab_preds)
-                        # Student en unlabeled
-                        s_unl_preds = student(x_unl, training=True)
-                        s_unl_probs = tf.sigmoid(s_unl_preds)
 
-                        loss_sup  = dice_loss(y_lab, s_lab_probs)
-                        loss_cons = mse_loss(t_probs, s_unl_probs)
-                        loss_total = loss_sup + UNLABELED_WEIGHT * cons_w * loss_cons
+                for epoch in range(EPOCHS):
+                    logging.info(f"--- Época {epoch+1}/{EPOCHS} (Mean Teacher) ---")
+                    cons_w = get_consistency_weight(epoch)
 
-                    grads = tape.gradient(loss_total, student.trainable_variables)
-                    optimizer.apply_gradients(zip(grads, student.trainable_variables))
+                    for x_lab, y_lab, x_unl_s, x_unl_t in train_mixed_loader:
+                        # → Teacher sobre versión débil
+                        t_preds = teacher(x_unl_t, training=False)
+                        t_probs = tf.sigmoid(t_preds)
 
-                    # Actualizar teacher con EMA
-                    sw = student.get_weights()
-                    tw = teacher.get_weights()
-                    new_tw = [
-                        EMA_ALPHA * tw_i + (1.0 - EMA_ALPHA) * sw_i
-                        for sw_i, tw_i in zip(sw, tw)
-                    ]
-                    teacher.set_weights(new_tw)
+                        with tf.GradientTape() as tape:
+                            # Student en labeled
+                            s_lab_preds = student(x_lab, training=True)
+                            s_lab_probs = tf.sigmoid(s_lab_preds)
+                            loss_sup  = dice_loss(y_lab, s_lab_probs)
 
-                # Evaluación en validación (solo student)
-                val_metrics = student.evaluate(val_loader, verbose=0)
-                val_loss, val_iou = val_metrics[0], val_metrics[1]
+                            # DEBUG:
+                            #logging.info(f"DEBUG dtype y_lab: {y_lab.dtype}, dtype s_lab_probs: {s_lab_probs.dtype}")
+                            #logging.info(f"DEBUG valores únicos y_lab: {tf.unique(tf.reshape(y_lab, [-1])).y.numpy()[:5]}")
+
+                            #logging.info(f"DEBUG sup loss (primer batch): {loss_sup.numpy()}")
+
+                            # Student en unlabeled
+                            s_unl_preds = student(x_unl_s, training=True)
+                            s_unl_probs = tf.sigmoid(s_unl_preds)
+                            loss_cons = mse_loss(t_probs, s_unl_probs)
+
+                            loss_total = loss_sup + UNLABELED_WEIGHT * cons_w * loss_cons
+                    
+                        grads = tape.gradient(loss_total, student.trainable_variables)
+
+
+                        optimizer.apply_gradients(zip(grads, student.trainable_variables))
+
+                        # Actualizar teacher con EMA
+                        sw = student.get_weights()
+                        tw = teacher.get_weights()
+                        new_tw = [
+                            EMA_ALPHA * tw_i + (1.0 - EMA_ALPHA) * sw_i
+                            for sw_i, tw_i in zip(sw, tw)
+                        ]
+                        teacher.set_weights(new_tw)
+
+                    # ────────────────────────────────────────────────────────────
+                    # ▼ EN LUGAR de recorrer val_loader manualmente, llamamos a evaluate_and_log
+                    try:
+                        val_loss, val_iou, val_prec, val_rec, val_f1 = evaluate_and_log(
+                            student,      # tu modelo student
+                            val_loader,   # tu DataLoader de validación
+                            writer,       # CSV writer
+                            epoch,        # número de época
+                            loss_sup,     # pérdida supervisada calculada en el batch
+                            loss_cons,    # pérdida de consistencia
+                            loss_total    # suma de las dos anteriores
+                        )                        
+                        logging.info(
+                            f"Época {epoch}: sup={loss_sup:.4f}, cons={loss_cons:.4f}, total={loss_total:.4f} | "
+                            f"val_loss={val_loss:.4f}, IoU={val_iou:.4f}, P={val_prec:.4f}, "
+                            f"R={val_rec:.4f}, F1={val_f1:.4f}"
+                        )
+
+                    except Exception as e:
+                        # Alerta si evaluate_and_log falla por algún motivo
+                        print(f"[main_semisup_g] ERROR en evaluate_and_log en época {epoch+1}: {e}")
+                        val_loss, val_iou = float('nan'), float('nan')
+
+                    logging.info(
+                        f"{arch} (MT) Época {epoch+1}: Val Loss={val_loss:.4f}, Val IoU={val_iou:.4f}"
+                    )
+                    # ────
+                    # ─────────────────────────────────────────────
+                    # Guardar sólo si esta época supera el mejor IoU_val
+                    if val_iou > best_iou:
+                        best_iou   = val_iou
+                        best_epoch = epoch + 1
+                        student.save_weights(best_path)
+                        logging.info(f"[semi] ▶ Nuevo best IoU_val={best_iou:.4f} (época {best_epoch})")
+
+                # Evaluación final en test (student)
+# ─────────────────────────────────────────────
+                # Carga el mejor modelo según validación
+                student.load_weights(best_path)
+                logging.info(f"[semi] ✔ Cargado best checkpoint época {best_epoch} con IoU_val={best_iou:.4f}")
+
+                test_metrics = student.evaluate(test_loader, verbose=0)
+                test_loss, test_iou = test_metrics[0], test_metrics[1]
                 logging.info(
-                    f"{arch} (MT) Época {epoch+1}: Val Loss={val_metrics[0]:.4f}, "
-                    f"Val IoU={val_metrics[1]:.4f}"
+                    f"{arch} (MT) Test final: Loss={test_metrics[0]:.4f}, IoU={test_metrics[1]:.4f}"
                 )
-                # Guardar checkpoint student
-                student.save_weights(os.path.join(
-                    MODEL_DIR, f"{arch}_student_epoch{epoch+1}.weights.h5"
-                ))
-
-            # Evaluación final en test (student)
-            test_metrics = student.evaluate(test_loader, verbose=0)
-            test_loss, test_iou = test_metrics[0], test_metrics[1]
-            logging.info(
-                f"{arch} (MT) Test final: Loss={test_metrics[0]:.4f}, IoU={test_metrics[1]:.4f}"
-            )
                        
 
     else:

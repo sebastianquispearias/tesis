@@ -5,10 +5,6 @@ import tensorflow as tf
 from tensorflow.keras.metrics import Precision, Recall
 from tensorflow import keras
 from deeplabv3p.model import Deeplabv3 as DeepLabV3Plus
-import tensorflow_models as tfm
-from tfm.core.exp_factory import get_exp_config
-from tfm.core.task_factory import get_task
-from metrics_utils import iou_score, f1_score
 
 def build_model(
     arch,
@@ -47,15 +43,13 @@ def build_model(
                 if layer.name.startswith('entry') or layer.name.startswith('middle') or layer.name.startswith('exit'):
                     layer.trainable = False
 
- 
+        # 6) Compila con tu optimizador y tus pérdidas/métricas
         model.compile(
             optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
             loss=tf.keras.losses.BinaryCrossentropy() if n_classes == 1 else 'categorical_crossentropy',
             metrics=[
-                iou_score,                      # IoU sobre la máscara :contentReference[oaicite:5]{index=5}
-                Precision(name='precision'),
-                Recall(name='recall'),
-                f1_score                        # F1 Score :contentReference[oaicite:6]{index=6}
+                # importa y usa tus métricas definidas en metrics_utils
+                # e.g. iou_score, precision, recall, f1_score
             ]
         )
         return model

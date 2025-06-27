@@ -1,0 +1,18 @@
+{
+    "sourceFile": "models_sebas.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750538590338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750538590338,
+            "name": "Commit-0",
+            "content": "# models.py  (sólo cambian las arquitecturas)\r\nimport segmentation_models as sm\r\nimport tensorflow as tf\r\n\r\nfrom tensorflow.keras.metrics import Precision, Recall\r\nfrom tensorflow import keras\r\nfrom deeplabv3p.model import Deeplabv3 as DeepLabV3Plus\r\n\r\ndef build_model(arch, backbone, n_classes, activation, lr, input_shape=(320,320,3), dropout=0.3,freeze_encoder=False):# eliminar freezer\r\n    if arch == 'baseline':\r\n        base = sm.Unet(backbone, classes=n_classes, activation=None, encoder_weights='imagenet', encoder_freeze=freeze_encoder,input_shape=input_shape)\r\n    elif arch == 'pspnet':\r\n        base = sm.PSPNet(backbone, classes=n_classes, activation=None, encoder_weights='imagenet', encoder_freeze=freeze_encoder,input_shape=input_shape)\r\n    elif arch == 'fpn':\r\n        base = sm.FPN(backbone, classes=n_classes, activation=None, encoder_weights='imagenet', encoder_freeze=freeze_encoder,input_shape=input_shape)\r\n    elif arch == 'deeplabv3+':\r\n        base = DeepLabV3Plus(\r\n            backbone_name=backbone,\r\n            input_shape=input_shape,\r\n            classes=n_classes,\r\n            activation=None,\r\n            weights='pascal_voc'  # o None para entrenar desde cero\r\n        )\r\n\r\n    \r\n    else:\r\n        raise ValueError(f\"Arquitectura desconocida: {arch}\")\r\n\r\n    x = keras.layers.Dropout(dropout)(base.output)\r\n    x = keras.layers.Activation(activation, name=activation)(x)\r\n    model = keras.models.Model(inputs=base.input, outputs=x)\r\n\r\n    optim   = keras.optimizers.Adam(lr)\r\n    loss    = sm.losses.DiceLoss()\r\n    metrics = [\r\n        sm.metrics.IOUScore(threshold=0.5),  # IoU\r\n        Precision(name='precision'),         # Precisión\r\n        Recall(name='recall'),               # Recall\r\n        sm.metrics.FScore(threshold=0.5)     # F1-Score\r\n    ]\r\n    model.compile(optimizer=optim, loss=loss, metrics=metrics)\r\n    return model\r\n"
+        }
+    ]
+}

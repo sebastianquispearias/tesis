@@ -1,0 +1,109 @@
+2025-06-22 19:04:58,166 INFO: --- Iniciando Entrenamiento Supervisado para el Régimen: B50 ---
+2025-06-22 19:04:58,166 INFO: Usando dispositivo: cuda
+2025-06-22 19:04:58,170 INFO: Congelar encoder (freeze_encoder): True
+2025-06-22 19:04:58,421 INFO: --> Encoder congelado manualmente. Solo se entrenará el decoder.
+2025-06-22 19:05:19,555 INFO: Epoch 1: Train Loss=0.5888 | Val Loss=0.5436 | Val IoU=0.3764 | Val F1=0.5242
+2025-06-22 19:05:19,611 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.3764
+2025-06-22 19:05:40,524 INFO: Epoch 2: Train Loss=0.4673 | Val Loss=0.4831 | Val IoU=0.4048 | Val F1=0.5545
+2025-06-22 19:05:40,588 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4048
+2025-06-22 19:06:01,330 INFO: Epoch 3: Train Loss=0.4489 | Val Loss=0.4679 | Val IoU=0.4088 | Val F1=0.5563
+2025-06-22 19:06:01,390 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4088
+2025-06-22 19:06:21,919 INFO: Epoch 4: Train Loss=0.4387 | Val Loss=0.4606 | Val IoU=0.4073 | Val F1=0.5562
+2025-06-22 19:06:42,493 INFO: Epoch 5: Train Loss=0.4233 | Val Loss=0.4402 | Val IoU=0.4239 | Val F1=0.5753
+2025-06-22 19:06:42,554 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4239
+2025-06-22 19:07:03,045 INFO: Epoch 6: Train Loss=0.4100 | Val Loss=0.4620 | Val IoU=0.3968 | Val F1=0.5428
+2025-06-22 19:07:23,478 INFO: Epoch 7: Train Loss=0.4388 | Val Loss=0.4470 | Val IoU=0.4109 | Val F1=0.5578
+2025-06-22 19:07:44,006 INFO: Epoch 8: Train Loss=0.3887 | Val Loss=0.4220 | Val IoU=0.4398 | Val F1=0.5888
+2025-06-22 19:07:44,068 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4398
+2025-06-22 19:08:04,676 INFO: Epoch 9: Train Loss=0.3651 | Val Loss=0.4117 | Val IoU=0.4518 | Val F1=0.6005
+2025-06-22 19:08:04,737 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4518
+2025-06-22 19:08:25,480 INFO: Epoch 10: Train Loss=0.3926 | Val Loss=0.3989 | Val IoU=0.4626 | Val F1=0.6116
+2025-06-22 19:08:25,537 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4626
+2025-06-22 19:08:46,524 INFO: Epoch 11: Train Loss=0.3821 | Val Loss=0.4162 | Val IoU=0.4460 | Val F1=0.5912
+2025-06-22 19:09:07,077 INFO: Epoch 12: Train Loss=0.3658 | Val Loss=0.3901 | Val IoU=0.4751 | Val F1=0.6194
+2025-06-22 19:09:07,136 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4751
+2025-06-22 19:09:28,246 INFO: Epoch 13: Train Loss=0.3578 | Val Loss=0.3966 | Val IoU=0.4666 | Val F1=0.6090
+2025-06-22 19:09:49,669 INFO: Epoch 14: Train Loss=0.3567 | Val Loss=0.3825 | Val IoU=0.4814 | Val F1=0.6258
+2025-06-22 19:09:49,731 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4814
+2025-06-22 19:10:11,350 INFO: Epoch 15: Train Loss=0.3583 | Val Loss=0.3806 | Val IoU=0.4817 | Val F1=0.6278
+2025-06-22 19:10:11,413 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4817
+2025-06-22 19:10:32,061 INFO: Epoch 16: Train Loss=0.3436 | Val Loss=0.3800 | Val IoU=0.4820 | Val F1=0.6278
+2025-06-22 19:10:32,121 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4820
+2025-06-22 19:10:52,740 INFO: Epoch 17: Train Loss=0.3567 | Val Loss=0.3828 | Val IoU=0.4773 | Val F1=0.6242
+2025-06-22 19:11:13,367 INFO: Epoch 18: Train Loss=0.3548 | Val Loss=0.3809 | Val IoU=0.4767 | Val F1=0.6239
+2025-06-22 19:11:34,031 INFO: Epoch 19: Train Loss=0.3657 | Val Loss=0.3920 | Val IoU=0.4646 | Val F1=0.6115
+2025-06-22 19:11:54,838 INFO: Epoch 20: Train Loss=0.3504 | Val Loss=0.3683 | Val IoU=0.4902 | Val F1=0.6383
+2025-06-22 19:11:54,896 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4902
+2025-06-22 19:12:16,208 INFO: Epoch 21: Train Loss=0.3441 | Val Loss=0.3814 | Val IoU=0.4767 | Val F1=0.6228
+2025-06-22 19:12:36,586 INFO: Epoch 22: Train Loss=0.3106 | Val Loss=0.3764 | Val IoU=0.4820 | Val F1=0.6291
+2025-06-22 19:12:57,166 INFO: Epoch 23: Train Loss=0.3485 | Val Loss=0.3727 | Val IoU=0.4851 | Val F1=0.6336
+2025-06-22 19:13:17,988 INFO: Epoch 24: Train Loss=0.3377 | Val Loss=0.3781 | Val IoU=0.4816 | Val F1=0.6267
+2025-06-22 19:13:38,785 INFO: Epoch 25: Train Loss=0.3283 | Val Loss=0.3647 | Val IoU=0.4949 | Val F1=0.6412
+2025-06-22 19:13:38,845 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4949
+2025-06-22 19:13:59,476 INFO: Epoch 26: Train Loss=0.3457 | Val Loss=0.3687 | Val IoU=0.4919 | Val F1=0.6369
+2025-06-22 19:14:20,429 INFO: Epoch 27: Train Loss=0.3516 | Val Loss=0.3813 | Val IoU=0.4758 | Val F1=0.6222
+2025-06-22 19:14:41,750 INFO: Epoch 28: Train Loss=0.3313 | Val Loss=0.3746 | Val IoU=0.4859 | Val F1=0.6296
+2025-06-22 19:15:02,320 INFO: Epoch 29: Train Loss=0.3497 | Val Loss=0.3679 | Val IoU=0.4945 | Val F1=0.6376
+2025-06-22 19:15:22,872 INFO: Epoch 30: Train Loss=0.3412 | Val Loss=0.3636 | Val IoU=0.4969 | Val F1=0.6421
+2025-06-22 19:15:22,930 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4969
+2025-06-22 19:15:43,436 INFO: Epoch 31: Train Loss=0.3390 | Val Loss=0.3622 | Val IoU=0.4989 | Val F1=0.6441
+2025-06-22 19:15:43,495 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.4989
+2025-06-22 19:16:04,580 INFO: Epoch 32: Train Loss=0.3277 | Val Loss=0.3714 | Val IoU=0.4897 | Val F1=0.6335
+2025-06-22 19:16:26,204 INFO: Epoch 33: Train Loss=0.3294 | Val Loss=0.3721 | Val IoU=0.4884 | Val F1=0.6325
+2025-06-22 19:16:47,798 INFO: Epoch 34: Train Loss=0.3282 | Val Loss=0.3530 | Val IoU=0.5050 | Val F1=0.6524
+2025-06-22 19:16:47,857 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.5050
+2025-06-22 19:17:08,588 INFO: Epoch 35: Train Loss=0.3400 | Val Loss=0.3623 | Val IoU=0.4945 | Val F1=0.6426
+2025-06-22 19:17:29,816 INFO: Epoch 36: Train Loss=0.3288 | Val Loss=0.3658 | Val IoU=0.4927 | Val F1=0.6388
+2025-06-22 19:17:50,698 INFO: Epoch 37: Train Loss=0.3143 | Val Loss=0.3805 | Val IoU=0.4779 | Val F1=0.6231
+2025-06-22 19:18:11,686 INFO: Epoch 38: Train Loss=0.3330 | Val Loss=0.3663 | Val IoU=0.4908 | Val F1=0.6372
+2025-06-22 19:18:35,496 INFO: Epoch 39: Train Loss=0.3250 | Val Loss=0.3687 | Val IoU=0.4904 | Val F1=0.6361
+2025-06-22 19:19:01,985 INFO: Epoch 40: Train Loss=0.3215 | Val Loss=0.3552 | Val IoU=0.5044 | Val F1=0.6492
+2025-06-22 19:19:23,052 INFO: Epoch 41: Train Loss=0.3340 | Val Loss=0.3720 | Val IoU=0.4882 | Val F1=0.6309
+2025-06-22 19:19:43,711 INFO: Epoch 42: Train Loss=0.3169 | Val Loss=0.3701 | Val IoU=0.4899 | Val F1=0.6341
+2025-06-22 19:20:04,256 INFO: Epoch 43: Train Loss=0.3275 | Val Loss=0.3824 | Val IoU=0.4778 | Val F1=0.6202
+2025-06-22 19:20:24,960 INFO: Epoch 44: Train Loss=0.3052 | Val Loss=0.3839 | Val IoU=0.4758 | Val F1=0.6189
+2025-06-22 19:20:45,544 INFO: Epoch 45: Train Loss=0.2945 | Val Loss=0.3618 | Val IoU=0.4981 | Val F1=0.6412
+2025-06-22 19:21:06,225 INFO: Epoch 46: Train Loss=0.3022 | Val Loss=0.3909 | Val IoU=0.4667 | Val F1=0.6113
+2025-06-22 19:21:27,055 INFO: Epoch 47: Train Loss=0.3060 | Val Loss=0.3716 | Val IoU=0.4893 | Val F1=0.6322
+2025-06-22 19:21:47,430 INFO: Epoch 48: Train Loss=0.3392 | Val Loss=0.3696 | Val IoU=0.4896 | Val F1=0.6345
+2025-06-22 19:22:08,272 INFO: Epoch 49: Train Loss=0.3097 | Val Loss=0.3830 | Val IoU=0.4765 | Val F1=0.6201
+2025-06-22 19:22:29,237 INFO: Epoch 50: Train Loss=0.3356 | Val Loss=0.3765 | Val IoU=0.4798 | Val F1=0.6266
+2025-06-22 19:22:50,780 INFO: Epoch 51: Train Loss=0.3130 | Val Loss=0.3672 | Val IoU=0.4916 | Val F1=0.6369
+2025-06-22 19:23:11,392 INFO: Epoch 52: Train Loss=0.3236 | Val Loss=0.3738 | Val IoU=0.4859 | Val F1=0.6293
+2025-06-22 19:23:32,308 INFO: Epoch 53: Train Loss=0.3267 | Val Loss=0.3656 | Val IoU=0.4937 | Val F1=0.6382
+2025-06-22 19:23:54,179 INFO: Epoch 54: Train Loss=0.3145 | Val Loss=0.3522 | Val IoU=0.5066 | Val F1=0.6518
+2025-06-22 19:23:54,241 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.5066
+2025-06-22 19:24:17,646 INFO: Epoch 55: Train Loss=0.3189 | Val Loss=0.3567 | Val IoU=0.5020 | Val F1=0.6473
+2025-06-22 19:24:38,776 INFO: Epoch 56: Train Loss=0.3120 | Val Loss=0.3587 | Val IoU=0.4989 | Val F1=0.6450
+2025-06-22 19:25:01,760 INFO: Epoch 57: Train Loss=0.3103 | Val Loss=0.3626 | Val IoU=0.4983 | Val F1=0.6409
+2025-06-22 19:25:24,233 INFO: Epoch 58: Train Loss=0.3187 | Val Loss=0.3845 | Val IoU=0.4740 | Val F1=0.6168
+2025-06-22 19:25:45,140 INFO: Epoch 59: Train Loss=0.3127 | Val Loss=0.3687 | Val IoU=0.4907 | Val F1=0.6343
+2025-06-22 19:26:07,099 INFO: Epoch 60: Train Loss=0.3247 | Val Loss=0.3707 | Val IoU=0.4895 | Val F1=0.6322
+2025-06-22 19:26:27,744 INFO: Epoch 61: Train Loss=0.3053 | Val Loss=0.3889 | Val IoU=0.4699 | Val F1=0.6131
+2025-06-22 19:26:48,725 INFO: Epoch 62: Train Loss=0.3055 | Val Loss=0.3797 | Val IoU=0.4782 | Val F1=0.6228
+2025-06-22 19:27:09,438 INFO: Epoch 63: Train Loss=0.3118 | Val Loss=0.3506 | Val IoU=0.5073 | Val F1=0.6539
+2025-06-22 19:27:09,499 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.5073
+2025-06-22 19:27:30,307 INFO: Epoch 64: Train Loss=0.2975 | Val Loss=0.3541 | Val IoU=0.5043 | Val F1=0.6500
+2025-06-22 19:27:51,103 INFO: Epoch 65: Train Loss=0.3150 | Val Loss=0.3492 | Val IoU=0.5108 | Val F1=0.6559
+2025-06-22 19:27:51,163 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.5108
+2025-06-22 19:28:11,852 INFO: Epoch 66: Train Loss=0.2926 | Val Loss=0.3629 | Val IoU=0.4976 | Val F1=0.6409
+2025-06-22 19:28:32,826 INFO: Epoch 67: Train Loss=0.3257 | Val Loss=0.3496 | Val IoU=0.5095 | Val F1=0.6538
+2025-06-22 19:28:53,627 INFO: Epoch 68: Train Loss=0.3139 | Val Loss=0.3717 | Val IoU=0.4844 | Val F1=0.6316
+2025-06-22 19:29:14,473 INFO: Epoch 69: Train Loss=0.2955 | Val Loss=0.3575 | Val IoU=0.5004 | Val F1=0.6472
+2025-06-22 19:29:35,050 INFO: Epoch 70: Train Loss=0.3045 | Val Loss=0.3504 | Val IoU=0.5093 | Val F1=0.6539
+2025-06-22 19:29:55,859 INFO: Epoch 71: Train Loss=0.2943 | Val Loss=0.3490 | Val IoU=0.5103 | Val F1=0.6551
+2025-06-22 19:30:16,496 INFO: Epoch 72: Train Loss=0.3003 | Val Loss=0.3614 | Val IoU=0.4969 | Val F1=0.6424
+2025-06-22 19:30:38,008 INFO: Epoch 73: Train Loss=0.2943 | Val Loss=0.3495 | Val IoU=0.5094 | Val F1=0.6559
+2025-06-22 19:30:58,989 INFO: Epoch 74: Train Loss=0.3024 | Val Loss=0.3696 | Val IoU=0.4892 | Val F1=0.6339
+2025-06-22 19:31:19,827 INFO: Epoch 75: Train Loss=0.2955 | Val Loss=0.3803 | Val IoU=0.4777 | Val F1=0.6219
+2025-06-22 19:31:40,568 INFO: Epoch 76: Train Loss=0.2877 | Val Loss=0.3707 | Val IoU=0.4889 | Val F1=0.6321
+2025-06-22 19:32:01,617 INFO: Epoch 77: Train Loss=0.2962 | Val Loss=0.3719 | Val IoU=0.4888 | Val F1=0.6307
+2025-06-22 19:32:22,417 INFO: Epoch 78: Train Loss=0.2948 | Val Loss=0.3560 | Val IoU=0.5055 | Val F1=0.6471
+2025-06-22 19:32:43,561 INFO: Epoch 79: Train Loss=0.3044 | Val Loss=0.3532 | Val IoU=0.5057 | Val F1=0.6505
+2025-06-22 19:33:04,190 INFO: Epoch 80: Train Loss=0.2961 | Val Loss=0.3397 | Val IoU=0.5215 | Val F1=0.6643
+2025-06-22 19:33:04,250 INFO: --> Nuevo mejor modelo guardado en best_model_supervised_B50.pth con Val IoU: 0.5215
+2025-06-22 19:33:04,250 INFO: Entrenamiento completado. Mejor Val IoU: 0.5215
+2025-06-22 19:33:04,251 INFO: --- Iniciando Evaluación Final en el Conjunto de Test ---
+2025-06-22 19:33:04,329 INFO: Cargando el mejor modelo desde best_model_supervised_B50.pth
+2025-06-22 19:33:09,178 INFO: >> RESULTADO FINAL EN TEST: Loss=0.3379, IoU=0.5186, F1=0.6666
+2025-06-22 19:33:09,178 INFO: ¡Proceso finalizado con éxito!

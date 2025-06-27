@@ -173,7 +173,7 @@ class MixedDataLoader(keras.utils.Sequence):
     y comprueba que las carpetas no estén vacías al inicio.
     """
     def __init__(self, x_lab_dir, y_lab_dir, x_unlab_dir,
-                 batch_size_lab=BATCH_SIZE, batch_size_unlab=BATCH_SIZE,
+                 batch_size_lab=4, batch_size_unlab=4,
                  augment_lab=None, augment_unlab_student=None, augment_unlab_teacher=None, preprocess=None):
 
         self.lab_images = sorted(os.listdir(x_lab_dir))
@@ -249,7 +249,7 @@ class MixedDataLoader(keras.utils.Sequence):
         unl_batch_files = self.unl_images[start_unl:end_unl]
 
         x_unl_student, x_unl_teacher = [], []
-
+        
         for fname in unl_batch_files:
             img = cv2.cvtColor(
                 cv2.imread(os.path.join(self.x_unlab_dir, fname)),
@@ -414,11 +414,10 @@ if __name__ == '__main__':
             x_lab_dir=x_train_lab_dir,
             y_lab_dir=y_train_lab_dir,
             x_unlab_dir=x_train_unlab_dir,
-            batch_size_lab=BATCH_SIZE,
-            batch_size_unlab=BATCH_SIZE,
-            augment_lab=strong_aug,  
-            augment_unlab_student=strong_aug,
-            augment_unlab_teacher=weak_aug, 
+            batch_size_lab=4,
+            batch_size_unlab=4,
+            augment_lab=get_training_augmentation(),
+            augment_unlab=get_training_augmentation(),
             preprocess=get_preprocessing(preprocess_input)
         )
 

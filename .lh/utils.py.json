@@ -1,0 +1,18 @@
+{
+    "sourceFile": "utils.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750610487419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750610487419,
+            "name": "Commit-0",
+            "content": "import torch\r\nimport cv2\r\nimport numpy as np\r\n\r\ndef crear_kernel_elipse(diametro_equiv: int, aspect_ratio: float, angulo_grados: int, device: str = 'cuda'):\r\n    \"\"\"\r\n    Crea un kernel morfológico con forma de elipse y una orientación específica.\r\n    \"\"\"\r\n    # Calcular radios de los ejes a partir del diámetro y aspect ratio\r\n    radio_menor = (diametro_equiv / 2.0) / np.sqrt(aspect_ratio)\r\n    radio_mayor = radio_menor * aspect_ratio\r\n    \r\n    # Tamaño del lienzo para dibujar la elipse\r\n    tam_lienzo = int(radio_mayor * 2.5)\r\n    if tam_lienzo % 2 == 0: tam_lienzo += 1 # Asegurar tamaño impar\r\n    centro = (tam_lienzo // 2, tam_lienzo // 2)\r\n\r\n    # Crear elipse\r\n    eje = (int(round(radio_menor)), int(round(radio_mayor)))\r\n    lienzo = np.zeros((tam_lienzo, tam_lienzo), dtype=np.uint8)\r\n    cv2.ellipse(lienzo, center=centro, axes=eje, angle=angulo_grados, startAngle=0, endAngle=360, color=255, thickness=-1)\r\n    \r\n    kernel = (lienzo > 0).astype(np.float32)\r\n    \r\n    return torch.from_numpy(kernel).to(device)\r\n\r\n@torch.no_grad()\r\ndef actualizar_teacher_ema(student_model, teacher_model, alpha=0.999):\r\n    for param_teacher, param_student in zip(teacher_model.parameters(), student_model.parameters()):\r\n        param_teacher.data.mul_(alpha).add_(student_param.data, alpha=1 - alpha)"
+        }
+    ]
+}
