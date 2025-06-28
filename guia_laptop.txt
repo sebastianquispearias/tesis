@@ -1,0 +1,58 @@
+Startup Checklist for Corrosion Semi-Supervised Experiment
+
+1. Activate the Conda environment:
+   conda activate corrosion_semisup
+
+2. Navigate to the project directory:
+   cd C:\Users\User\Desktop\tesis
+
+3. Sync the repository (if needed):
+   git pull origin main
+
+4. Verify CUDA and cuDNN are loaded:
+   python debug_cuda.py
+   # Expected:
+   # nvcuda.dll: ✅ cargada
+   # cudart64_110.dll: ✅ cargada
+   # cudnn64_8.dll: ✅ cargada
+
+5. Confirm key dependencies are installed:
+   pip check
+   # or
+   python - <<EOF
+   import torch, torchvision, kornia, albumentations, segmentation_models_pytorch
+   print("OK!")
+   EOF
+
+6. (Optional) Recompute kernel statistics if masks changed:
+   python compute_kernel_stats.py
+   # Should print:
+   # Kernel radii saved: {'radii': [21, 36, 53]}
+
+7. Run training for the C75 regime:
+   python main_semisup_pytorch_enhancer_4kernels.py --regime C75
+
+   # To log output:
+   python main_semisup_pytorch_enhancer_4kernels.py --regime C75 > log_C75.txt 2>&1
+
+8. Monitor GPU usage:
+   nvidia-smi -l 5
+
+   # If you hit OOM, reduce BATCH_SIZE in your script.
+
+9. After training:
+   - Check log files for Command and Hyperparameters at the top.
+   - Backup trained models.
+   - Commit code changes and tag the experiment version in Git.
+
+Tips:
+- Always confirm the "Command:" and "Hyperparameters:" block at the start of your log.
+- Set CUDA_VISIBLE_DEVICES if you need to specify GPU.
+- Use pip check and nvidia-smi for quick diagnostics.
+__________________DELAUNAY________________________________________________________________________________________
+Pulsa Ctrl+Shift+P → Remote-SSH: Connect to Host… → delaunay-tecgraf.
+
+Introduce tu contraseña V@rc7k1Va dos veces (proxyjump).
+
+Verás en la esquina inferior izquierda: SSH: delaunay-tecgraf.
+

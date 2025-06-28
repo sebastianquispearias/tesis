@@ -134,7 +134,39 @@ def main():
                                   logging.StreamHandler(sys.stdout)],
                         format="%(asctime)s %(levelname)s: %(message)s")
     logging.info(f"Dispositivo: {DEVICE}")
-
+    # — **INICIO**: logging de comando y hiperparámetros —
+    logging.info("Command: %s", " ".join(sys.argv))
+    logging.info(
+        "Hyperparameters:\n"
+        "  EMA_ALPHA    = %s\n"
+        "  CONS_MAX     = %s\n"
+        "  CONS_RAMPUP  = %s\n"
+        "  UNLABELED_W  = %s\n"
+        "  SEED         = %s\n"
+        "  BATCH_SIZE   = %s\n"
+        "  LR           = %s\n"
+        "  EPOCHS       = %s\n"
+        "  INPUT_SHAPE  = %s\n"
+        "  DATA_ROOT    = %s\n"
+        "  CLASSES      = %s\n"
+        "  N_CLASSES    = %s\n"
+        "  DEVICE       = %s\n"
+        "  REGIME       = %s",
+        EMA_ALPHA,
+        CONS_MAX,
+        CONS_RAMPUP,
+        UNLABELED_W,
+        SEED,
+        BATCH_SIZE,
+        LR,
+        EPOCHS,
+        INPUT_SHAPE,
+        DATA_ROOT,
+        CLASSES,
+        N_CLASSES,
+        DEVICE,
+        regime
+    )
     # Rutas
     root = os.path.join(DATA_ROOT, regime)
     xl = os.path.join(root, "train/images_labeled")
