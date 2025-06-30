@@ -28,7 +28,7 @@ from losses import LossConsistenciaMorfologicaCompuesta
 SEED          = 42
 BATCH_SIZE    = 2
 LR            = 1e-4
-EPOCHS        = 2
+EPOCHS        = 80
 INPUT_SHAPE   = (384, 384)
 DATA_ROOT     = r"./data/all_results/regimes"  # ajusta si hace falta
 CLASSES       = ["corrosion"]

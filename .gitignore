@@ -75,3 +75,19 @@ models/
 ########################################
 .lh/
 .history/
+
+entrenamiento_log_*
+*_delaunay.txt
+venv_delaunay/
+*.pth
+# Logs y entornos locales
+entrenamiento_log_*.txt
+*_delaunay.txt
+venv_delaunay/
+*.pth
+
+# Logs y entornos locales
+entrenamiento_log_*.txt
+*_delaunay.txt
+venv_delaunay/
+*.pth
