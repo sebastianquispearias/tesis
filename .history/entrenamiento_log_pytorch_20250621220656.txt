@@ -1,2 +1,0 @@
-2025-06-21 22:00:51,989 INFO: Dispositivo: cpu
-2025-06-21 22:05:04,230 INFO: Dispositivo: cpu

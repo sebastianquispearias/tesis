@@ -70,3 +70,8 @@ models/
 *.xlsx
 *_history.csv
 *.h5
+########################################
+# 9. Archivos de historiales internos
+########################################
+.lh/
+.history/

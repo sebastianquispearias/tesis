@@ -2,7 +2,9 @@
 
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128,garbage_collection_threshold:0.6"
 
+import subprocess
 import sys
 import argparse
 import random
@@ -20,13 +22,13 @@ from PIL import Image
 import segmentation_models_pytorch as smp
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-from utils import crear_kernel_elipse, actualizar_teacher_ema
+from utils import crear_kernel_elipse, actualizar_teacher_ema,gpu_snapshot, reset_memory, log_memory_epoch, summarize_epochs
 from losses import LossConsistenciaMorfologicaCompuesta
 # ─────────── 0) Parámetros globales ───────────
 SEED          = 42
 BATCH_SIZE    = 2
 LR            = 1e-4
-EPOCHS        = 80
+EPOCHS        = 2
 INPUT_SHAPE   = (384, 384)
 DATA_ROOT     = r"./data/all_results/regimes"  # ajusta si hace falta
 CLASSES       = ["corrosion"]
@@ -133,6 +135,24 @@ def main():
                         handlers=[logging.FileHandler("entrenamiento_log_pytorch_enhancer.txt"),
                                   logging.StreamHandler(sys.stdout)],
                         format="%(asctime)s %(levelname)s: %(message)s")
+
+    gpu_snapshot("Before training")
+    stats = {k: [] for k in (
+        "alloc", "reserved", "peak",
+        "sup", "cons", "total",
+        "val_loss", "iou", "p", "r", "f1"
+    )}
+    # Obtén la memoria total de GPU en MB
+    try:
+        total_mem = int(subprocess.check_output(
+            ["nvidia-smi","--query-gpu=memory.total","--format=csv,nounits,noheader"],
+            stderr=subprocess.DEVNULL
+        ).decode().strip())
+        logging.info(f"GPU: {torch.cuda.get_device_name(0)}, total_memory: {total_mem} MiB")
+    except Exception:
+        logging.info(f"GPU: {torch.cuda.get_device_name(0)}, total_memory: unknown")
+
+
     logging.info(f"Dispositivo: {DEVICE}")
     # — **INICIO**: logging de comando y hiperparámetros —
     logging.info("Command: %s", " ".join(sys.argv))
@@ -225,17 +245,19 @@ def main():
     libreria_de_kernels = [kernel_pequeno_hor, kernel_pequeno_ver, kernel_grande_hor, kernel_grande_ver]
 
     # Instancia tu loss morfológico compuesto
-    cons_loss  = LossConsistenciaMorfologicaCompuesta(lista_kernels=libreria_de_kernels)
+    cons_loss  = LossConsistenciaMorfologicaCompuesta(lista_kernels=libreria_de_kernels)##########################################
     
     logging.info(f"Usando Loss de Consistencia Morfológica Compuesta con {len(libreria_de_kernels)} kernels.")
-
     best_iou = 0.0
     for epoch in range(1, EPOCHS+1):
+        #gpu_snapshot(f"Epoch {epoch}")
+        reset_memory(DEVICE)
+
         student.train()
         epoch_sup, epoch_cons = 0.0, 0.0
         loop = tqdm(zip(sup_loader, unlab_strong_loader, unlab_weak_loader), total=len(sup_loader), leave=False)
 
-        for (x_s, y_s), (x_us, _), (x_uw, _) in loop:
+        for j, ((x_s, y_s), (x_us, _), (x_uw, _)) in enumerate(loop):
             x_s, y_s = x_s.to(DEVICE), y_s.to(DEVICE)
             x_us = x_us.to(DEVICE)   # student on strong
             x_uw = x_uw.to(DEVICE)   # teacher on weak
@@ -250,6 +272,7 @@ def main():
             s_us = torch.sigmoid(student(x_us))
 
             w = get_consistency_weight(epoch)
+
             loss_c = cons_loss(s_us, t_uw) * w * UNLABELED_W
 
             loss = loss_s + loss_c
@@ -302,11 +325,30 @@ def main():
             f"sup={sup_avg:.4f}, cons={cons_avg:.4f}, total={total:.4f} | "
             f"val_loss={val_loss:.4f}, IoU={iou:.4f}, P={prec:.4f}, R={rec:.4f}, F1={f1:.4f}"
         )
+                # ── registro de memoria y métricas al final de la época ──
+
+        alloc, reserved, peak = log_memory_epoch(DEVICE, epoch)
+        stats["alloc"].append(alloc)
+        stats["reserved"].append(reserved)
+        stats["peak"].append(peak)
+        stats["sup"].append(sup_avg)
+        stats["cons"].append(cons_avg)
+        stats["total"].append(total)
+        stats["val_loss"].append(val_loss)
+        stats["iou"].append(iou)
+        stats["p"].append(prec)
+        stats["r"].append(rec)
+        stats["f1"].append(f1)
         # Guarda mejor modelo por IoU
         if iou > best_iou:
             best_iou = iou
             torch.save(student.state_dict(), f"best_deeplab_{regime}.pth")
+    gpu_snapshot("After training")
+
+    summarize_epochs(stats, EPOCHS)
+
     # ——— Evaluación final en TEST ———
+
     # Rutas de test
     xt = os.path.join(root, "test/images")
     yt = os.path.join(root, "test/masks")

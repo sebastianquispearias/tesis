@@ -2,6 +2,57 @@ import torch
 import cv2
 import numpy as np
 
+#
+# utils.py
+import torch
+import subprocess
+import logging
+
+def gpu_snapshot(note: str = None):
+    """Captura nvidia-smi y lo manda a logging.info (solo llama a subprocess)."""
+    try:
+        smi = subprocess.check_output(["nvidia-smi"], text=True)
+        header = f"\n[nvidia-smi snapshot{f' {note}' if note else ''}]\n"
+        logging.info(header + smi)
+    except Exception:
+        logging.warning("No se pudo ejecutar nvidia-smi")
+
+def reset_memory(device):
+    """Resetea las estadísticas de pico de memoria."""
+    torch.cuda.reset_peak_memory_stats(device)
+
+def log_memory_epoch(device, epoch):
+    """Loggea alloc / reserved / peak_reserved al final de la época."""
+    alloc    = torch.cuda.memory_allocated(device)    / 1024**3
+    reserved = torch.cuda.memory_reserved(device)     / 1024**3
+    peak     = torch.cuda.max_memory_reserved(device) / 1024**3
+    #logging.info(
+    #    f"[MEM][Epoch {epoch}] alloc={alloc:.2f} GiB  "
+    #    f"reserved={reserved:.2f} GiB  peak_reserved={peak:.2f} GiB"
+    #)
+    return alloc, reserved, peak
+
+def summarize_epochs(stats: dict, epochs: int):
+    """
+    Imprime una tabla compacta con todas las épocas y métricas requeridas.
+    """
+    header = (
+        "Epoch |  Sup   |  Cons  | Total  | Alloc  | Reserved | Peak   | "
+        "Val_loss |  IoU   |   P    |   R    |  F1   "
+    )
+    sep = "-" * len(header)
+    logging.info("\n" + header)
+    logging.info(sep)
+    for e in range(epochs):
+        logging.info(
+            f"{e+1:5d} | "
+            f"{stats['sup'][e]:6.4f} | {stats['cons'][e]:6.4f} | {stats['total'][e]:7.4f} | "
+            f"{stats['alloc'][e]:6.2f} | {stats['reserved'][e]:8.2f} | {stats['peak'][e]:7.2f} | "
+            f"{stats['val_loss'][e]:8.4f} | {stats['iou'][e]:7.4f} | "
+            f"{stats['p'][e]:7.4f} | {stats['r'][e]:7.4f} | {stats['f1'][e]:7.4f}"
+        )
+
+#
 def crear_kernel_elipse(diametro_equiv: int, aspect_ratio: float, angulo_grados: int, device: str = 'cuda'):
     """
     Crea un kernel morfológico con forma de elipse y una orientación específica.

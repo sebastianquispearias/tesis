@@ -39,18 +39,9 @@ def build_model(
         )(x)
         model = tf.keras.Model(inputs=base.input, outputs=x)
 
-        # 5) (Opcional) congelar encoder
-        if freeze_encoder:
-            for layer in model.layers:
-                # en la config original el encoder es Xception; 
-                # si quisieras congelar, podrías usar layer.name.startswith('entry') etc.
-                if layer.name.startswith('entry') or layer.name.startswith('middle') or layer.name.startswith('exit'):
-                    layer.trainable = False
-
- 
-        model.compile(
+            model.compile(
             optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
-            loss=tf.keras.losses.BinaryCrossentropy() if n_classes == 1 else 'categorical_crossentropy',
+            loss=DiceLoss() + tf.keras.losses.BinaryCrossentropy() if n_classes == 1 else 'categorical_crossentropy',
             metrics=[
                 iou_score,                      # IoU sobre la máscara :contentReference[oaicite:5]{index=5}
                 Precision(name='precision'),
