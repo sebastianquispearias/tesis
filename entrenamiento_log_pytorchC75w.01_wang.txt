@@ -1,3 +1,0 @@
-2025-06-23 02:48:12,815 INFO: Dispositivo: cuda
-2025-06-23 02:48:13,190 INFO: Usando Loss de Consistencia Clásico (MSE) para el baseline.
-2025-06-23 02:49:03,346 INFO: Época 1: sup=0.5771, cons=0.0001, total=0.5772 | val_loss=0.4903, IoU=0.4238, P=0.5295, R=0.6501, F1=0.5682
