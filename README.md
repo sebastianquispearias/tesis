@@ -95,6 +95,6 @@ The goal of this research is to complete the following comparative table, demons
 
 50%                      0.5186              0.6020                     0.6088
 
-75%                      0.4890              0.5876                     0.5612
+75%                      0.4890              0.5876                     In progress...
 ```
 
