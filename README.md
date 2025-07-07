@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/aae8d15a-d0ed-462b-b06a-57ad24c93340)# Semi-Supervised Corrosion Segmentation with Adaptive Morphological Regularization
+# Domain-Adaptive Morphological Regularization for Semi-Supervised Corrosion Segmentation
 
 ## Project Summary
 
