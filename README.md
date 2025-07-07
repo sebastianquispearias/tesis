@@ -22,7 +22,7 @@ The second layer of innovation is that the **morphological kernels are domain-ad
 * 
 Weights & Logs
 Due to their size, the pre-trained model weights and the training logs for all experiments are not included in this repository. They can be downloaded from the following Google Drive folder:
-https://drive.google.com/drive/folders/1nvSOg8QUZ_HMz7McE3q0UN1Icb_oi518
+[https://drive.google.com/drive/folders/1nvSOg8QUZ_HMz7McE3q0UN1Icb_oi518](https://drive.google.com/drive/folders/1nvSOg8QUZ_HMz7McE3q0UN1Icb_oi518?usp=sharing)
 
 ## Repository Structure
 
