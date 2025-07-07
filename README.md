@@ -1,4 +1,4 @@
-# Semi-Supervised Corrosion Segmentation with Adaptive Morphological Regularization
+![image](https://github.com/user-attachments/assets/aae8d15a-d0ed-462b-b06a-57ad24c93340)# Semi-Supervised Corrosion Segmentation with Adaptive Morphological Regularization
 
 ## Project Summary
 
@@ -7,6 +7,7 @@ This repository contains the PyTorch implementation of a novel semi-supervised l
 The main contribution is a new **morphological consistency loss** integrated into the Mean Teacher framework. Unlike classic methods that enforce consistency at the pixel level, our method compels the student model to generate predictions that are structurally coherent with the teacher's morphological pseudo-targets (erosion and dilation).
 
 The second layer of innovation is that the **morphological kernels are domain-adaptive**: they are designed based on a prior statistical analysis of the shape, size, and orientation of real defects, creating a much more powerful and informed shape regularizer than generic approaches.
+
 
 ## Key Features
 
@@ -18,6 +19,10 @@ The second layer of innovation is that the **morphological kernels are domain-ad
     * Our proposed method with adaptive morphological regularization (Dxx).
 * **Novel Loss**: `LossConsistenciaMorfologicaCompuesta` which operates with a library of kernels and a flexible internal comparator (MSE or Dice).
 * **Domain Intelligence**: Scripts to statistically analyze masks and generate custom elliptical kernels.
+* 
+Weights & Logs ⚖
+Due to their size, the pre-trained model weights and the training logs for all experiments are not included in this repository. They can be downloaded from the following Google Drive folder:
+https://drive.google.com/drive/folders/1nvSOg8QUZ_HMz7McE3q0UN1Icb_oi518
 
 ## Repository Structure
 
@@ -86,10 +91,10 @@ The goal of this research is to complete the following comparative table, demons
 ```text
 % of Labeled Data     Supervised (Bxx)    Classic MT (Cxx)    Morphological Regularization (Dxx)
 
-25%                0.7480              [TO BE OBTAINED]            [TO BE OBTAINED]
+25%                      0.5305              0.6195                     0.6186
 
-50%      [TO BE OBTAINED]              [TO BE OBTAINED]            [TO BE OBTAINED]
+50%                      0.5186              0.6020                     0.6088
 
-75%      [TO BE OBTAINED]              [TO BE OBTAINED]            [TO BE OBTAINED]
+75%                      0.4890              0.5876                     0.5612
 ```
 
