@@ -93,3 +93,8 @@ venv_delaunay/
 *.pth
 entrenamiento_log_*.txt
 *.log
+
+*.txt
+!README*.txt
+agrupar_logs/
+entrenamiento_log_*.txt
