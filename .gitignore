@@ -91,3 +91,5 @@ entrenamiento_log_*.txt
 *_delaunay.txt
 venv_delaunay/
 *.pth
+entrenamiento_log_*.txt
+*.log

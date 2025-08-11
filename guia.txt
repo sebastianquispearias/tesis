@@ -9,7 +9,8 @@ Uso:
 
   python main_semisup_gtestaug.py --mode semi       --regime C25
 
-
+python main_semisup_sebas.py --mode semi       --regime C25
+python main_semisup_sebas.py --mode supervised       --regime B25
   __________________gpu________________________________________________________________________________________
 Use comandos “python -c” em vez de <<EOF, pois PowerShell não entende here-doc do Bash. Por exemplo:
 
@@ -78,3 +79,23 @@ pip list | findstr /R "tensorflow cudatoolkit cudnn"
 # 10) Verifica tu PATH incluye las rutas de CUDA/cuDNN:
 #    (en PowerShell)
 echo $env:PATH
+
+
+python .\inferencia.py `
+  --input "data/all_results/regimes/C75/test/images/vt_test_6.png" `
+  --mask  "data/all_results/regimes/C75/test/masks/vt_test_6.png" `
+  --weights "models_MT_semisup_baselineC50/baseline_best_student.weights.h5" 
+
+
+
+  __________________gpu________________________________________________________________________________________PYTORCH
+  >>> import os
+>>> # (Opcional) evita el error de OpenMP al cargar PyTorch
+>>> os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"  
+>>> import torch
+>>> print("CUDA available:", torch.cuda.is_available())
+>>> print("Device count:  ", torch.cuda.device_count())
+>>> 
+
+
+conda activate deeplab-env                                                             

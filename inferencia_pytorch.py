@@ -139,3 +139,19 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+#python inferencia_pytorch.py --weights best_deeplab_C50_ENHANCER.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+    # best_deeplab_C25_ENHANCER.pth
+    #python inferencia_pytorch.py --weights best_model_supervised_B50.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+    #python inferencia_pytorch.py --weights best_deeplab_C25.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+ #best_deeplab_C50_1KERNEL.pth
+
+#python inferencia_pytorch.py --weights best_deeplab_D50_1KERNEL.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+#best_model_supervised_B50.pth
+
+#python inferencia_pytorch.py --weights best_model_supervised_B50.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+#best_deeplab_C75_WANG.pth
+#python inferencia_pytorch.py --weights best_model_supervised_B50.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_test_6.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_test_6.png"
+#python inferencia_pytorch.py --weights best_deeplab_D75_1kernel.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_train_253.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_train_253.png"
+#python inferencia_pytorch.py --weights best_deeplab_C75w.01_wang.pth --input "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\images\vt_train_253.png" --mask "C:\Users\User\Desktop\tesis\data\all_results\regimes\A-Full\test\masks\vt_train_253.png"
